@@ -1,4 +1,16 @@
-select distinct o_orderdate 
-       , sum(o_totalprice) over (order by o_orderdate) cumulative_sales
-from "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."ORDERS"
+with orders as (
+	select *
+	from {{ source('sample', 'orders') }}
+)
+
+select distinct
+  o_orderdate 
+, sum(o_totalprice) over (order by o_orderdate) cumulative_sales
+from orders
+
+{% if target.name == 'dev' %}
+where year(o_orderdate) = 1996
+{% endif %}
+
+
 order by o_orderdate 

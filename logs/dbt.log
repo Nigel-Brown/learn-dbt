@@ -30329,3 +30329,1285 @@ grant select on all views in schema analytics.dbt to role analyst
 09:24:29.069333 [info ] [MainThread]: 
 09:24:29.069563 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
 09:24:29.069880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1065ecbe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1065ecac0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1065ecf40>]}
+
+
+============================== 2022-05-17 10:50:41.265054 | 8ac4e803-eec1-4c06-9204-4dd3ff973875 ==============================
+10:50:41.265054 [info ] [MainThread]: Running with dbt=1.0.1
+10:50:41.265719 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/nigelbrown/.dbt', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, threads=None, select=['playing_with_tests'], exclude=None, selector_name=None, state=None, defer=None, full_refresh=False, cls=<class 'dbt.task.run.RunTask'>, which='run', rpc_method='run')
+10:50:41.265921 [debug] [MainThread]: Tracking: tracking
+10:50:41.266194 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072931c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107293dc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107293460>]}
+10:50:41.303789 [info ] [MainThread]: Unable to do partial parsing because profile has changed
+10:50:41.304052 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '8ac4e803-eec1-4c06-9204-4dd3ff973875', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072998e0>]}
+10:50:41.320047 [debug] [MainThread]: Parsing macros/suspend_warehouse.sql
+10:50:41.320699 [debug] [MainThread]: Parsing macros/rename_segments.sql
+10:50:41.320969 [debug] [MainThread]: Parsing macros/group_by.sql
+10:50:41.322327 [debug] [MainThread]: Parsing macros/catalog.sql
+10:50:41.323392 [debug] [MainThread]: Parsing macros/adapters.sql
+10:50:41.343117 [debug] [MainThread]: Parsing macros/materializations/merge.sql
+10:50:41.345038 [debug] [MainThread]: Parsing macros/materializations/seed.sql
+10:50:41.347545 [debug] [MainThread]: Parsing macros/materializations/view.sql
+10:50:41.348174 [debug] [MainThread]: Parsing macros/materializations/table.sql
+10:50:41.349628 [debug] [MainThread]: Parsing macros/materializations/incremental.sql
+10:50:41.353762 [debug] [MainThread]: Parsing macros/materializations/snapshot.sql
+10:50:41.354256 [debug] [MainThread]: Parsing macros/materializations/hooks.sql
+10:50:41.356035 [debug] [MainThread]: Parsing macros/materializations/configs.sql
+10:50:41.357090 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot_merge.sql
+10:50:41.357868 [debug] [MainThread]: Parsing macros/materializations/snapshots/strategies.sql
+10:50:41.365947 [debug] [MainThread]: Parsing macros/materializations/snapshots/helpers.sql
+10:50:41.371784 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot.sql
+10:50:41.378013 [debug] [MainThread]: Parsing macros/materializations/tests/test.sql
+10:50:41.380248 [debug] [MainThread]: Parsing macros/materializations/tests/helpers.sql
+10:50:41.381083 [debug] [MainThread]: Parsing macros/materializations/tests/where_subquery.sql
+10:50:41.381911 [debug] [MainThread]: Parsing macros/materializations/models/incremental/column_helpers.sql
+10:50:41.383989 [debug] [MainThread]: Parsing macros/materializations/models/incremental/merge.sql
+10:50:41.389558 [debug] [MainThread]: Parsing macros/materializations/models/incremental/is_incremental.sql
+10:50:41.390324 [debug] [MainThread]: Parsing macros/materializations/models/incremental/incremental.sql
+10:50:41.395343 [debug] [MainThread]: Parsing macros/materializations/models/incremental/on_schema_change.sql
+10:50:41.403527 [debug] [MainThread]: Parsing macros/materializations/models/table/table.sql
+10:50:41.407546 [debug] [MainThread]: Parsing macros/materializations/models/table/create_table_as.sql
+10:50:41.408945 [debug] [MainThread]: Parsing macros/materializations/models/view/view.sql
+10:50:41.412683 [debug] [MainThread]: Parsing macros/materializations/models/view/helpers.sql
+10:50:41.413349 [debug] [MainThread]: Parsing macros/materializations/models/view/create_or_replace_view.sql
+10:50:41.414671 [debug] [MainThread]: Parsing macros/materializations/models/view/create_view_as.sql
+10:50:41.415771 [debug] [MainThread]: Parsing macros/materializations/seeds/seed.sql
+10:50:41.418780 [debug] [MainThread]: Parsing macros/materializations/seeds/helpers.sql
+10:50:41.427030 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_alias.sql
+10:50:41.427745 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_schema.sql
+10:50:41.428872 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_database.sql
+10:50:41.429580 [debug] [MainThread]: Parsing macros/generic_test_sql/relationships.sql
+10:50:41.429991 [debug] [MainThread]: Parsing macros/generic_test_sql/not_null.sql
+10:50:41.430231 [debug] [MainThread]: Parsing macros/generic_test_sql/unique.sql
+10:50:41.430534 [debug] [MainThread]: Parsing macros/generic_test_sql/accepted_values.sql
+10:50:41.431169 [debug] [MainThread]: Parsing macros/etc/statement.sql
+10:50:41.433226 [debug] [MainThread]: Parsing macros/etc/datetime.sql
+10:50:41.437495 [debug] [MainThread]: Parsing macros/adapters/schema.sql
+10:50:41.438465 [debug] [MainThread]: Parsing macros/adapters/indexes.sql
+10:50:41.439674 [debug] [MainThread]: Parsing macros/adapters/relation.sql
+10:50:41.444147 [debug] [MainThread]: Parsing macros/adapters/freshness.sql
+10:50:41.445463 [debug] [MainThread]: Parsing macros/adapters/persist_docs.sql
+10:50:41.447466 [debug] [MainThread]: Parsing macros/adapters/metadata.sql
+10:50:41.450863 [debug] [MainThread]: Parsing macros/adapters/columns.sql
+10:50:41.455502 [debug] [MainThread]: Parsing tests/generic/builtin.sql
+10:50:41.545335 [debug] [MainThread]: 1603: static parser failed on example/my_first_dbt_model.sql
+10:50:41.552504 [debug] [MainThread]: 1602: parser fallback to jinja rendering on example/my_first_dbt_model.sql
+10:50:41.553150 [debug] [MainThread]: 1603: static parser failed on example/playing_with_tests.sql
+10:50:41.555715 [debug] [MainThread]: 1602: parser fallback to jinja rendering on example/playing_with_tests.sql
+10:50:41.556336 [debug] [MainThread]: 1603: static parser failed on example/snowflake_cumulative_sales.sql
+10:50:41.558444 [debug] [MainThread]: 1602: parser fallback to jinja rendering on example/snowflake_cumulative_sales.sql
+10:50:41.559069 [debug] [MainThread]: 1603: static parser failed on example/my_second_dbt_model.sql
+10:50:41.561200 [debug] [MainThread]: 1602: parser fallback to jinja rendering on example/my_second_dbt_model.sql
+10:50:41.561807 [debug] [MainThread]: 1603: static parser failed on example/incremental_time.sql
+10:50:41.565585 [debug] [MainThread]: 1602: parser fallback to jinja rendering on example/incremental_time.sql
+10:50:41.566176 [debug] [MainThread]: 1603: static parser failed on example/snowflake_customer_purchases.sql
+10:50:41.569491 [debug] [MainThread]: 1602: parser fallback to jinja rendering on example/snowflake_customer_purchases.sql
+10:50:41.570042 [debug] [MainThread]: 1603: static parser failed on new/dates.sql
+10:50:41.571426 [debug] [MainThread]: 1602: parser fallback to jinja rendering on new/dates.sql
+10:50:41.635432 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8ac4e803-eec1-4c06-9204-4dd3ff973875', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1077f5ac0>]}
+10:50:41.638872 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8ac4e803-eec1-4c06-9204-4dd3ff973875', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107328220>]}
+10:50:41.639048 [info ] [MainThread]: Found 7 models, 12 tests, 1 snapshot, 0 analyses, 182 macros, 4 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+10:50:41.639673 [info ] [MainThread]: 
+10:50:41.639887 [debug] [MainThread]: Acquiring new snowflake connection "master"
+10:50:41.640175 [debug] [ThreadPool]: Acquiring new snowflake connection "list_analytics"
+10:50:41.645829 [debug] [ThreadPool]: Using snowflake connection "list_analytics"
+10:50:41.645918 [debug] [ThreadPool]: On list_analytics: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_analytics"} */
+
+    show terse schemas in database analytics
+    limit 10000
+10:50:41.645980 [debug] [ThreadPool]: Opening a new connection, currently in state init
+10:50:42.570353 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 0.92 seconds
+10:50:42.573132 [debug] [ThreadPool]: On list_analytics: Close
+10:50:42.745106 [debug] [ThreadPool]: Acquiring new snowflake connection "list_analytics_snaphots"
+10:50:42.745721 [debug] [ThreadPool]: Acquiring new snowflake connection "list_analytics_dbt_nigel"
+10:50:42.757766 [debug] [ThreadPool]: Using snowflake connection "list_analytics_dbt_nigel"
+10:50:42.758335 [debug] [ThreadPool]: Using snowflake connection "list_analytics_snaphots"
+10:50:42.758469 [debug] [ThreadPool]: On list_analytics_dbt_nigel: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_analytics_dbt_nigel"} */
+
+    show terse objects in analytics.dbt_nigel
+10:50:42.758613 [debug] [ThreadPool]: On list_analytics_snaphots: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_analytics_snaphots"} */
+
+    show terse objects in analytics.snaphots
+10:50:42.758740 [debug] [ThreadPool]: Opening a new connection, currently in state init
+10:50:42.758866 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+10:50:43.360897 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 0.6 seconds
+10:50:43.365574 [debug] [ThreadPool]: On list_analytics_dbt_nigel: Close
+10:50:43.587344 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.83 seconds
+10:50:43.589418 [debug] [ThreadPool]: On list_analytics_snaphots: Close
+10:50:43.747715 [info ] [MainThread]: 
+10:50:43.748257 [info ] [MainThread]: Running 1 on-run-start hook
+10:50:43.748589 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-start-0
+10:50:43.750436 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-start-0"
+10:50:43.754898 [info ] [MainThread]: 1 of 1 START hook: learn_dbt.on-run-start.0..................................... [RUN]
+10:50:43.755526 [debug] [MainThread]: Using snowflake connection "master"
+10:50:43.755677 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+create table if not exists audit (model text, state text, time timestamp_ltz)
+10:50:43.755806 [debug] [MainThread]: Opening a new connection, currently in state init
+10:50:44.329421 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.57 seconds
+10:50:44.331830 [info ] [MainThread]: 1 of 1 OK hook: learn_dbt.on-run-start.0........................................ [[32mSUCCESS 1[0m in 0.58s]
+10:50:44.332439 [info ] [MainThread]: 
+10:50:44.332833 [debug] [MainThread]: On master: Close
+10:50:44.494514 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+10:50:44.495183 [info ] [MainThread]: 
+10:50:44.501143 [debug] [Thread-1  ]: Began running node model.learn_dbt.playing_with_tests
+10:50:44.501566 [info ] [Thread-1  ]: 1 of 1 START table model dbt_nigel.playing_with_tests........................... [RUN]
+10:50:44.502087 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.learn_dbt.playing_with_tests"
+10:50:44.502271 [debug] [Thread-1  ]: Began compiling node model.learn_dbt.playing_with_tests
+10:50:44.502821 [debug] [Thread-1  ]: Compiling model.learn_dbt.playing_with_tests
+10:50:44.506243 [debug] [Thread-1  ]: Writing injected SQL for node "model.learn_dbt.playing_with_tests"
+10:50:44.506903 [debug] [Thread-1  ]: finished collecting timing info
+10:50:44.507068 [debug] [Thread-1  ]: Began executing node model.learn_dbt.playing_with_tests
+10:50:44.521272 [debug] [Thread-1  ]: Using snowflake connection "model.learn_dbt.playing_with_tests"
+10:50:44.521423 [debug] [Thread-1  ]: On model.learn_dbt.playing_with_tests: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.playing_with_tests"} */
+
+        insert into dbt.audit (model, state, time) values ('playing_with_tests', 'starting model deployment', current_timestamp)
+10:50:44.521523 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+10:50:46.026407 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 1.5 seconds
+10:50:46.040297 [debug] [Thread-1  ]: Writing runtime SQL for node "model.learn_dbt.playing_with_tests"
+10:50:46.041502 [debug] [Thread-1  ]: Using snowflake connection "model.learn_dbt.playing_with_tests"
+10:50:46.041659 [debug] [Thread-1  ]: On model.learn_dbt.playing_with_tests: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.playing_with_tests"} */
+
+
+      create or replace transient table analytics.dbt_nigel.playing_with_tests  as
+      (WITH sample_customer AS (
+select * 
+from snowflake_sample_data.tpch_sf1.customer
+)
+
+select
+  c_custkey,
+  c_mktsegment,
+  
+  CASE
+    WHEN '' in ('BUILDING', 'HOUSEHOLD', 'FURNITURE')
+      THEN 'segment_1'
+    ELSE 'segment_2'
+  END
+ mkt_segment_adjusted,
+  c_acctbal
+from sample_customer
+      );
+10:50:46.888966 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 0.85 seconds
+10:50:46.893396 [debug] [Thread-1  ]: Using snowflake connection "model.learn_dbt.playing_with_tests"
+10:50:46.893634 [debug] [Thread-1  ]: On model.learn_dbt.playing_with_tests: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.playing_with_tests"} */
+
+        insert into dbt.audit (model, state, time) values ('playing_with_tests', 'ending model deployment', current_timestamp)
+10:50:47.330722 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 0.44 seconds
+10:50:47.344797 [debug] [Thread-1  ]: finished collecting timing info
+10:50:47.345165 [debug] [Thread-1  ]: On model.learn_dbt.playing_with_tests: Close
+10:50:47.501802 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8ac4e803-eec1-4c06-9204-4dd3ff973875', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1111387c0>]}
+10:50:47.502528 [info ] [Thread-1  ]: 1 of 1 OK created table model dbt_nigel.playing_with_tests...................... [[32mSUCCESS 1[0m in 3.00s]
+10:50:47.502997 [debug] [Thread-1  ]: Finished running node model.learn_dbt.playing_with_tests
+10:50:47.504632 [debug] [MainThread]: Acquiring new snowflake connection "master"
+10:50:47.504969 [info ] [MainThread]: 
+10:50:47.505298 [info ] [MainThread]: Running 3 on-run-end hooks
+10:50:47.505618 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-0
+10:50:47.507388 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-0"
+10:50:47.509837 [info ] [MainThread]: 1 of 3 START hook: learn_dbt.on-run-end.0....................................... [RUN]
+10:50:47.510435 [debug] [MainThread]: Using snowflake connection "master"
+10:50:47.510588 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant usage on schema analytics.dbt to role analyst
+10:50:47.510735 [debug] [MainThread]: Opening a new connection, currently in state closed
+10:50:48.034865 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.52 seconds
+10:50:48.036449 [info ] [MainThread]: 1 of 3 OK hook: learn_dbt.on-run-end.0.......................................... [[32mSUCCESS 1[0m in 0.53s]
+10:50:48.036911 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-1
+10:50:48.038352 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-1"
+10:50:48.039150 [info ] [MainThread]: 2 of 3 START hook: learn_dbt.on-run-end.1....................................... [RUN]
+10:50:48.039517 [debug] [MainThread]: Using snowflake connection "master"
+10:50:48.039611 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant select on all tables in schema analytics.dbt to role analyst
+10:50:48.200008 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.16 seconds
+10:50:48.202060 [info ] [MainThread]: 2 of 3 OK hook: learn_dbt.on-run-end.1.......................................... [[32mSUCCESS 1[0m in 0.16s]
+10:50:48.202577 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-2
+10:50:48.205750 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-2"
+10:50:48.207017 [info ] [MainThread]: 3 of 3 START hook: learn_dbt.on-run-end.2....................................... [RUN]
+10:50:48.207632 [debug] [MainThread]: Using snowflake connection "master"
+10:50:48.207788 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant select on all views in schema analytics.dbt to role analyst
+10:50:48.322193 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.11 seconds
+10:50:48.325181 [info ] [MainThread]: 3 of 3 OK hook: learn_dbt.on-run-end.2.......................................... [[32mSUCCESS 1[0m in 0.12s]
+10:50:48.325626 [info ] [MainThread]: 
+10:50:48.325897 [debug] [MainThread]: On master: Close
+10:50:48.527456 [info ] [MainThread]: 
+10:50:48.528162 [info ] [MainThread]: Finished running 1 table model, 4 hooks in 6.89s.
+10:50:48.528530 [debug] [MainThread]: Connection 'master' was properly closed.
+10:50:48.528709 [debug] [MainThread]: Connection 'model.learn_dbt.playing_with_tests' was properly closed.
+10:50:48.528869 [debug] [MainThread]: Connection 'list_analytics_dbt_nigel' was properly closed.
+10:50:48.567058 [info ] [MainThread]: 
+10:50:48.567258 [info ] [MainThread]: [32mCompleted successfully[0m
+10:50:48.567413 [info ] [MainThread]: 
+10:50:48.567536 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+10:50:48.567706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10731a160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107381190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1112f6880>]}
+
+
+============================== 2022-05-17 10:50:58.614782 | c81a9ccf-dd3c-4af4-9a7d-83769f2ae442 ==============================
+10:50:58.614782 [info ] [MainThread]: Running with dbt=1.0.1
+10:50:58.615154 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/nigelbrown/.dbt', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, store_failures=False, indirect_selection='eager', threads=None, select=None, exclude=None, selector_name=None, state=None, defer=None, cls=<class 'dbt.task.test.TestTask'>, which='test', rpc_method='test')
+10:50:58.615280 [debug] [MainThread]: Tracking: tracking
+10:50:58.615478 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c83070>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c831c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c83d60>]}
+10:50:58.660766 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+10:50:58.660917 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+10:50:58.664270 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c81a9ccf-dd3c-4af4-9a7d-83769f2ae442', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c480d0>]}
+10:50:58.667905 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c81a9ccf-dd3c-4af4-9a7d-83769f2ae442', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105f3e040>]}
+10:50:58.668034 [info ] [MainThread]: Found 7 models, 12 tests, 1 snapshot, 0 analyses, 182 macros, 4 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+10:50:58.668896 [info ] [MainThread]: 
+10:50:58.669098 [debug] [MainThread]: Acquiring new snowflake connection "master"
+10:50:58.669616 [debug] [ThreadPool]: Acquiring new snowflake connection "list_analytics_dbt_nigel"
+10:50:58.669823 [debug] [ThreadPool]: Acquiring new snowflake connection "list_analytics_snaphots"
+10:50:58.675620 [debug] [ThreadPool]: Using snowflake connection "list_analytics_dbt_nigel"
+10:50:58.676463 [debug] [ThreadPool]: Using snowflake connection "list_analytics_snaphots"
+10:50:58.676549 [debug] [ThreadPool]: On list_analytics_dbt_nigel: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_analytics_dbt_nigel"} */
+
+    show terse objects in analytics.dbt_nigel
+10:50:58.676626 [debug] [ThreadPool]: On list_analytics_snaphots: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_analytics_snaphots"} */
+
+    show terse objects in analytics.snaphots
+10:50:58.676700 [debug] [ThreadPool]: Opening a new connection, currently in state init
+10:50:58.676767 [debug] [ThreadPool]: Opening a new connection, currently in state init
+10:50:59.755774 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 1.08 seconds
+10:50:59.759511 [debug] [ThreadPool]: On list_analytics_snaphots: Close
+10:50:59.894216 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 1.22 seconds
+10:50:59.898232 [debug] [ThreadPool]: On list_analytics_dbt_nigel: Close
+10:51:00.241862 [info ] [MainThread]: 
+10:51:00.242591 [info ] [MainThread]: Running 1 on-run-start hook
+10:51:00.242979 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-start-0
+10:51:00.245142 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-start-0"
+10:51:00.247436 [info ] [MainThread]: 1 of 1 START hook: learn_dbt.on-run-start.0..................................... [RUN]
+10:51:00.248085 [debug] [MainThread]: Using snowflake connection "master"
+10:51:00.248251 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+create table if not exists audit (model text, state text, time timestamp_ltz)
+10:51:00.248402 [debug] [MainThread]: Opening a new connection, currently in state init
+10:51:00.770939 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.52 seconds
+10:51:00.772420 [info ] [MainThread]: 1 of 1 OK hook: learn_dbt.on-run-start.0........................................ [[32mSUCCESS 1[0m in 0.52s]
+10:51:00.772815 [info ] [MainThread]: 
+10:51:00.773132 [debug] [MainThread]: On master: Close
+10:51:00.937994 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+10:51:00.938674 [info ] [MainThread]: 
+10:51:00.945548 [debug] [Thread-1  ]: Began running node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:00.946047 [debug] [Thread-2  ]: Began running node test.learn_dbt.assert_accbal_more_than_100m
+10:51:00.946219 [info ] [Thread-1  ]: 1 of 12 START test accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE [RUN]
+10:51:00.946381 [debug] [Thread-3  ]: Began running node test.learn_dbt.assert_under_10_percent_null
+10:51:00.946568 [debug] [Thread-4  ]: Began running node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:00.946712 [info ] [Thread-2  ]: 2 of 12 START test assert_accbal_more_than_100m................................. [RUN]
+10:51:00.947264 [debug] [Thread-1  ]: Acquiring new snowflake connection "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:00.947445 [info ] [Thread-3  ]: 3 of 12 START test assert_under_10_percent_null................................. [RUN]
+10:51:00.947620 [info ] [Thread-4  ]: 4 of 12 START test not_null_snowflake_cumulative_sales_o_orderdate.............. [RUN]
+10:51:00.948064 [debug] [Thread-2  ]: Acquiring new snowflake connection "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:00.948239 [debug] [Thread-1  ]: Began compiling node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:00.948701 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.learn_dbt.assert_under_10_percent_null"
+10:51:00.949111 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:00.949230 [debug] [Thread-2  ]: Began compiling node test.learn_dbt.assert_accbal_more_than_100m
+10:51:00.949424 [debug] [Thread-1  ]: Compiling test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:00.949591 [debug] [Thread-3  ]: Began compiling node test.learn_dbt.assert_under_10_percent_null
+10:51:00.949739 [debug] [Thread-4  ]: Began compiling node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:00.949891 [debug] [Thread-2  ]: Compiling test.learn_dbt.assert_accbal_more_than_100m
+10:51:00.961536 [debug] [Thread-3  ]: Compiling test.learn_dbt.assert_under_10_percent_null
+10:51:00.963287 [debug] [Thread-1  ]: Writing injected SQL for node "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:00.963501 [debug] [Thread-4  ]: Compiling test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:00.965347 [debug] [Thread-2  ]: Writing injected SQL for node "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:00.966952 [debug] [Thread-3  ]: Writing injected SQL for node "test.learn_dbt.assert_under_10_percent_null"
+10:51:00.971131 [debug] [Thread-4  ]: Writing injected SQL for node "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:00.971476 [debug] [Thread-1  ]: finished collecting timing info
+10:51:00.971636 [debug] [Thread-1  ]: Began executing node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:00.981889 [debug] [Thread-1  ]: Writing runtime SQL for node "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:00.982132 [debug] [Thread-2  ]: finished collecting timing info
+10:51:00.982250 [debug] [Thread-2  ]: Began executing node test.learn_dbt.assert_accbal_more_than_100m
+10:51:00.983170 [debug] [Thread-2  ]: Writing runtime SQL for node "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:00.983264 [debug] [Thread-3  ]: finished collecting timing info
+10:51:00.983823 [debug] [Thread-1  ]: Using snowflake connection "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:00.983943 [debug] [Thread-3  ]: Began executing node test.learn_dbt.assert_under_10_percent_null
+10:51:00.984008 [debug] [Thread-4  ]: finished collecting timing info
+10:51:00.984089 [debug] [Thread-1  ]: On test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with all_values as (
+
+    select
+        c_mktsegment as value_field,
+        count(*) as n_records
+
+    from analytics.dbt_nigel.playing_with_tests
+    group by c_mktsegment
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'BUILDING','AUTOMOBILE','MACHINERY','HOUSEHOLD','FURNITURE'
+)
+
+
+
+      
+    ) dbt_internal_test
+10:51:00.984996 [debug] [Thread-3  ]: Writing runtime SQL for node "test.learn_dbt.assert_under_10_percent_null"
+10:51:00.985112 [debug] [Thread-4  ]: Began executing node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:00.985431 [debug] [Thread-2  ]: Using snowflake connection "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:00.985515 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+10:51:00.986440 [debug] [Thread-4  ]: Writing runtime SQL for node "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:00.986552 [debug] [Thread-2  ]: On test.learn_dbt.assert_accbal_more_than_100m: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.assert_accbal_more_than_100m"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select sum(c_acctbal) as sum
+    from analytics.dbt_nigel.playing_with_tests
+having sum >= 100000000
+      
+    ) dbt_internal_test
+10:51:00.987125 [debug] [Thread-3  ]: Using snowflake connection "test.learn_dbt.assert_under_10_percent_null"
+10:51:00.987827 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+10:51:00.987956 [debug] [Thread-3  ]: On test.learn_dbt.assert_under_10_percent_null: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.assert_under_10_percent_null"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select sum (case when id is null then 1 else 0 end) / count(*) as total_nulls
+from analytics.dbt_nigel.first_model
+having sum (case when id is null then 1 else 0 end) / count(*) > .4
+      
+    ) dbt_internal_test
+10:51:00.988323 [debug] [Thread-4  ]: Using snowflake connection "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:00.988735 [debug] [Thread-3  ]: Opening a new connection, currently in state init
+10:51:00.989174 [debug] [Thread-4  ]: On test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select *
+from analytics.dbt_nigel.snowflake_cumulative_sales
+where o_orderdate is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:00.989803 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+10:51:02.182321 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 1.19 seconds
+10:51:02.186126 [debug] [Thread-4  ]: finished collecting timing info
+10:51:02.187214 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 1.2 seconds
+10:51:02.187467 [debug] [Thread-4  ]: On test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856: Close
+10:51:02.188873 [debug] [Thread-2  ]: finished collecting timing info
+10:51:02.190009 [debug] [Thread-2  ]: On test.learn_dbt.assert_accbal_more_than_100m: Close
+10:51:02.274310 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 1.29 seconds
+10:51:02.276480 [debug] [Thread-1  ]: finished collecting timing info
+10:51:02.276765 [debug] [Thread-1  ]: On test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3: Close
+10:51:02.312231 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 1.32 seconds
+10:51:02.315151 [debug] [Thread-3  ]: finished collecting timing info
+10:51:02.315446 [debug] [Thread-3  ]: On test.learn_dbt.assert_under_10_percent_null: Close
+10:51:02.354949 [error] [Thread-2  ]: 2 of 12 FAIL 1 assert_accbal_more_than_100m..................................... [[31mFAIL 1[0m in 1.41s]
+10:51:02.356113 [debug] [Thread-2  ]: Finished running node test.learn_dbt.assert_accbal_more_than_100m
+10:51:02.356478 [debug] [Thread-2  ]: Began running node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:02.356921 [info ] [Thread-2  ]: 5 of 12 START test not_null_snowflake_customer_purchases_c_custkey.............. [RUN]
+10:51:02.357577 [debug] [Thread-2  ]: Acquiring new snowflake connection "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:02.358030 [info ] [Thread-4  ]: 4 of 12 PASS not_null_snowflake_cumulative_sales_o_orderdate.................... [[32mPASS[0m in 1.41s]
+10:51:02.358228 [debug] [Thread-2  ]: Began compiling node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:02.358593 [debug] [Thread-4  ]: Finished running node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:02.358809 [debug] [Thread-2  ]: Compiling test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:02.359032 [debug] [Thread-4  ]: Began running node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:02.363496 [debug] [Thread-2  ]: Writing injected SQL for node "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:02.363810 [info ] [Thread-4  ]: 6 of 12 START test relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_ [RUN]
+10:51:02.364397 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:02.364565 [debug] [Thread-4  ]: Began compiling node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:02.364763 [debug] [Thread-4  ]: Compiling test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:02.372165 [debug] [Thread-4  ]: Writing injected SQL for node "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:02.372815 [debug] [Thread-2  ]: finished collecting timing info
+10:51:02.372972 [debug] [Thread-2  ]: Began executing node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:02.374119 [debug] [Thread-2  ]: Writing runtime SQL for node "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:02.374206 [debug] [Thread-4  ]: finished collecting timing info
+10:51:02.374344 [debug] [Thread-4  ]: Began executing node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:02.375162 [debug] [Thread-4  ]: Writing runtime SQL for node "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:02.376210 [debug] [Thread-2  ]: Using snowflake connection "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:02.376289 [debug] [Thread-2  ]: On test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select *
+from analytics.dbt_nigel.snowflake_customer_purchases
+where c_custkey is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:02.376357 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+10:51:02.377415 [debug] [Thread-4  ]: Using snowflake connection "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:02.377904 [debug] [Thread-4  ]: On test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select id as from_field
+    from analytics.dbt_nigel.my_second_dbt_model
+    where id is not null
+),
+
+parent as (
+    select id as to_field
+    from analytics.dbt_nigel.first_model
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:02.378050 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+10:51:02.470622 [info ] [Thread-1  ]: 1 of 12 PASS accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE [[32mPASS[0m in 1.52s]
+10:51:02.471042 [debug] [Thread-1  ]: Finished running node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:02.471213 [debug] [Thread-1  ]: Began running node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:02.471355 [info ] [Thread-1  ]: 7 of 12 START test source_not_null_sample_customer_c_custkey.................... [RUN]
+10:51:02.471714 [debug] [Thread-1  ]: Acquiring new snowflake connection "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:02.471855 [debug] [Thread-1  ]: Began compiling node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:02.472078 [debug] [Thread-1  ]: Compiling test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:02.475358 [debug] [Thread-1  ]: Writing injected SQL for node "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:02.476259 [debug] [Thread-1  ]: finished collecting timing info
+10:51:02.476406 [debug] [Thread-1  ]: Began executing node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:02.477682 [debug] [Thread-1  ]: Writing runtime SQL for node "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:02.477980 [info ] [Thread-3  ]: 3 of 12 PASS assert_under_10_percent_null....................................... [[32mPASS[0m in 1.53s]
+10:51:02.478302 [debug] [Thread-3  ]: Finished running node test.learn_dbt.assert_under_10_percent_null
+10:51:02.478824 [debug] [Thread-3  ]: Began running node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:02.479062 [info ] [Thread-3  ]: 8 of 12 START test source_unique_sample_customer_c_custkey...................... [RUN]
+10:51:02.479692 [debug] [Thread-1  ]: Using snowflake connection "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:02.480089 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:02.480234 [debug] [Thread-1  ]: On test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select *
+from snowflake_sample_data.tpch_sf1.customer
+where c_custkey is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:02.480372 [debug] [Thread-3  ]: Began compiling node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:02.480494 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+10:51:02.481514 [debug] [Thread-3  ]: Compiling test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:02.486933 [debug] [Thread-3  ]: Writing injected SQL for node "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:02.487868 [debug] [Thread-3  ]: finished collecting timing info
+10:51:02.488026 [debug] [Thread-3  ]: Began executing node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:02.489256 [debug] [Thread-3  ]: Writing runtime SQL for node "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:02.490210 [debug] [Thread-3  ]: Using snowflake connection "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:02.490433 [debug] [Thread-3  ]: On test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    c_custkey as unique_field,
+    count(*) as n_records
+
+from snowflake_sample_data.tpch_sf1.customer
+where c_custkey is not null
+group by c_custkey
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:02.490557 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+10:51:03.119031 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.74 seconds
+10:51:03.123382 [debug] [Thread-2  ]: finished collecting timing info
+10:51:03.123714 [debug] [Thread-2  ]: On test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502: Close
+10:51:03.125213 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 0.64 seconds
+10:51:03.126814 [debug] [Thread-1  ]: finished collecting timing info
+10:51:03.127656 [debug] [Thread-1  ]: On test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2: Close
+10:51:03.175017 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 0.68 seconds
+10:51:03.179299 [debug] [Thread-3  ]: finished collecting timing info
+10:51:03.179679 [debug] [Thread-3  ]: On test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd: Close
+10:51:03.289094 [info ] [Thread-2  ]: 5 of 12 PASS not_null_snowflake_customer_purchases_c_custkey.................... [[32mPASS[0m in 0.93s]
+10:51:03.289844 [debug] [Thread-2  ]: Finished running node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:03.290865 [debug] [Thread-2  ]: Began running node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:03.291323 [info ] [Thread-2  ]: 9 of 12 START test unique_my_first_dbt_model_id................................. [RUN]
+10:51:03.291952 [debug] [Thread-2  ]: Acquiring new snowflake connection "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:03.292209 [debug] [Thread-2  ]: Began compiling node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:03.292428 [debug] [Thread-2  ]: Compiling test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:03.297189 [debug] [Thread-2  ]: Writing injected SQL for node "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:03.297743 [info ] [Thread-1  ]: 7 of 12 PASS source_not_null_sample_customer_c_custkey.......................... [[32mPASS[0m in 0.83s]
+10:51:03.298266 [debug] [Thread-1  ]: Finished running node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:03.298529 [debug] [Thread-1  ]: Began running node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:03.298772 [info ] [Thread-1  ]: 10 of 12 START test unique_my_second_dbt_model_id............................... [RUN]
+10:51:03.299190 [debug] [Thread-1  ]: Acquiring new snowflake connection "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:03.299344 [debug] [Thread-1  ]: Began compiling node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:03.299494 [debug] [Thread-1  ]: Compiling test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:03.303139 [debug] [Thread-1  ]: Writing injected SQL for node "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:03.303561 [debug] [Thread-2  ]: finished collecting timing info
+10:51:03.303734 [debug] [Thread-2  ]: Began executing node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:03.303884 [debug] [Thread-1  ]: finished collecting timing info
+10:51:03.305514 [debug] [Thread-2  ]: Writing runtime SQL for node "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:03.305686 [debug] [Thread-1  ]: Began executing node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:03.307029 [debug] [Thread-1  ]: Writing runtime SQL for node "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:03.307783 [debug] [Thread-2  ]: Using snowflake connection "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:03.307924 [debug] [Thread-2  ]: On test.learn_dbt.unique_my_first_dbt_model_id.16e066b321: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.first_model
+where id is not null
+group by id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:03.308053 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+10:51:03.308599 [debug] [Thread-1  ]: Using snowflake connection "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:03.309481 [debug] [Thread-1  ]: On test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.my_second_dbt_model
+where id is not null
+group by id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:03.310060 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+10:51:03.342841 [info ] [Thread-3  ]: 8 of 12 PASS source_unique_sample_customer_c_custkey............................ [[32mPASS[0m in 0.86s]
+10:51:03.343218 [debug] [Thread-3  ]: Finished running node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:03.343391 [debug] [Thread-3  ]: Began running node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:03.343585 [info ] [Thread-3  ]: 11 of 12 START test unique_snowflake_cumulative_sales_o_orderdate............... [RUN]
+10:51:03.343947 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:03.344072 [debug] [Thread-3  ]: Began compiling node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:03.344195 [debug] [Thread-3  ]: Compiling test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:03.347329 [debug] [Thread-3  ]: Writing injected SQL for node "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:03.348253 [debug] [Thread-3  ]: finished collecting timing info
+10:51:03.348397 [debug] [Thread-3  ]: Began executing node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:03.349686 [debug] [Thread-3  ]: Writing runtime SQL for node "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:03.350458 [debug] [Thread-3  ]: Using snowflake connection "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:03.350577 [debug] [Thread-3  ]: On test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    o_orderdate as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.snowflake_cumulative_sales
+where o_orderdate is not null
+group by o_orderdate
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:03.350674 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+10:51:03.405445 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 1.03 seconds
+10:51:03.406726 [debug] [Thread-4  ]: finished collecting timing info
+10:51:03.406900 [debug] [Thread-4  ]: On test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9: Close
+10:51:03.589171 [info ] [Thread-4  ]: 6 of 12 PASS relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.. [[32mPASS[0m in 1.22s]
+10:51:03.601365 [debug] [Thread-4  ]: Finished running node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:03.601495 [debug] [Thread-4  ]: Began running node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:03.607780 [info ] [Thread-4  ]: 12 of 12 START test unique_snowflake_customer_purchases_c_custkey............... [RUN]
+10:51:03.628696 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:03.632178 [debug] [Thread-4  ]: Began compiling node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:03.644950 [debug] [Thread-4  ]: Compiling test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:03.658042 [debug] [Thread-4  ]: Writing injected SQL for node "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:03.673911 [debug] [Thread-4  ]: finished collecting timing info
+10:51:03.676148 [debug] [Thread-4  ]: Began executing node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:03.679160 [debug] [Thread-4  ]: Writing runtime SQL for node "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:03.683095 [debug] [Thread-4  ]: Using snowflake connection "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:03.684960 [debug] [Thread-4  ]: On test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    c_custkey as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.snowflake_customer_purchases
+where c_custkey is not null
+group by c_custkey
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:03.685528 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+10:51:03.999168 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.69 seconds
+10:51:04.000057 [debug] [Thread-2  ]: finished collecting timing info
+10:51:04.000171 [debug] [Thread-2  ]: On test.learn_dbt.unique_my_first_dbt_model_id.16e066b321: Close
+10:51:04.093106 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 0.78 seconds
+10:51:04.094293 [debug] [Thread-1  ]: finished collecting timing info
+10:51:04.094449 [debug] [Thread-1  ]: On test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493: Close
+10:51:04.145735 [info ] [Thread-2  ]: 9 of 12 PASS unique_my_first_dbt_model_id....................................... [[32mPASS[0m in 0.85s]
+10:51:04.146162 [debug] [Thread-2  ]: Finished running node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:04.227151 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 0.88 seconds
+10:51:04.231220 [debug] [Thread-3  ]: finished collecting timing info
+10:51:04.231671 [debug] [Thread-3  ]: On test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed: Close
+10:51:04.244196 [info ] [Thread-1  ]: 10 of 12 PASS unique_my_second_dbt_model_id..................................... [[32mPASS[0m in 0.95s]
+10:51:04.244689 [debug] [Thread-1  ]: Finished running node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:04.392543 [info ] [Thread-3  ]: 11 of 12 PASS unique_snowflake_cumulative_sales_o_orderdate..................... [[32mPASS[0m in 1.05s]
+10:51:04.393220 [debug] [Thread-3  ]: Finished running node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:04.455024 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 0.77 seconds
+10:51:04.458516 [debug] [Thread-4  ]: finished collecting timing info
+10:51:04.458857 [debug] [Thread-4  ]: On test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f: Close
+10:51:04.620393 [info ] [Thread-4  ]: 12 of 12 PASS unique_snowflake_customer_purchases_c_custkey..................... [[32mPASS[0m in 0.99s]
+10:51:04.621116 [debug] [Thread-4  ]: Finished running node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:04.622834 [debug] [MainThread]: Acquiring new snowflake connection "master"
+10:51:04.623204 [info ] [MainThread]: 
+10:51:04.623540 [info ] [MainThread]: Running 3 on-run-end hooks
+10:51:04.623903 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-0
+10:51:04.625701 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-0"
+10:51:04.626778 [info ] [MainThread]: 1 of 3 START hook: learn_dbt.on-run-end.0....................................... [RUN]
+10:51:04.627302 [debug] [MainThread]: Using snowflake connection "master"
+10:51:04.627461 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant usage on schema analytics.dbt to role analyst
+10:51:04.627606 [debug] [MainThread]: Opening a new connection, currently in state closed
+10:51:05.208666 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.58 seconds
+10:51:05.210972 [info ] [MainThread]: 1 of 3 OK hook: learn_dbt.on-run-end.0.......................................... [[32mSUCCESS 1[0m in 0.58s]
+10:51:05.211529 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-1
+10:51:05.213529 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-1"
+10:51:05.214919 [info ] [MainThread]: 2 of 3 START hook: learn_dbt.on-run-end.1....................................... [RUN]
+10:51:05.215635 [debug] [MainThread]: Using snowflake connection "master"
+10:51:05.215812 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant select on all tables in schema analytics.dbt to role analyst
+10:51:05.405752 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.19 seconds
+10:51:05.408417 [info ] [MainThread]: 2 of 3 OK hook: learn_dbt.on-run-end.1.......................................... [[32mSUCCESS 1[0m in 0.19s]
+10:51:05.409008 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-2
+10:51:05.411414 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-2"
+10:51:05.412579 [info ] [MainThread]: 3 of 3 START hook: learn_dbt.on-run-end.2....................................... [RUN]
+10:51:05.413164 [debug] [MainThread]: Using snowflake connection "master"
+10:51:05.413327 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant select on all views in schema analytics.dbt to role analyst
+10:51:05.534345 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.12 seconds
+10:51:05.537261 [info ] [MainThread]: 3 of 3 OK hook: learn_dbt.on-run-end.2.......................................... [[32mSUCCESS 1[0m in 0.12s]
+10:51:05.538127 [info ] [MainThread]: 
+10:51:05.538613 [debug] [MainThread]: On master: Close
+10:51:05.711411 [info ] [MainThread]: 
+10:51:05.712120 [info ] [MainThread]: Finished running 12 tests, 4 hooks in 7.04s.
+10:51:05.712457 [debug] [MainThread]: Connection 'master' was properly closed.
+10:51:05.712638 [debug] [MainThread]: Connection 'test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493' was properly closed.
+10:51:05.712799 [debug] [MainThread]: Connection 'test.learn_dbt.unique_my_first_dbt_model_id.16e066b321' was properly closed.
+10:51:05.712958 [debug] [MainThread]: Connection 'test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed' was properly closed.
+10:51:05.713122 [debug] [MainThread]: Connection 'test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f' was properly closed.
+10:51:05.721773 [info ] [MainThread]: 
+10:51:05.722073 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+10:51:05.722309 [info ] [MainThread]: 
+10:51:05.722505 [error] [MainThread]: [31mFailure in test assert_accbal_more_than_100m (tests/assert_accbal_more_than_100m.sql)[0m
+10:51:05.722719 [error] [MainThread]:   Got 1 result, configured to fail if != 0
+10:51:05.722912 [info ] [MainThread]: 
+10:51:05.723101 [info ] [MainThread]:   compiled SQL at target/compiled/learn_dbt/tests/assert_accbal_more_than_100m.sql
+10:51:05.723315 [info ] [MainThread]: 
+10:51:05.723507 [info ] [MainThread]: Done. PASS=11 WARN=0 ERROR=1 SKIP=0 TOTAL=12
+10:51:05.723813 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c57880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c57430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110839310>]}
+
+
+============================== 2022-05-17 10:51:30.389057 | 13da75d0-4a2e-4bfc-9264-b73c92158f71 ==============================
+10:51:30.389057 [info ] [MainThread]: Running with dbt=1.0.1
+10:51:30.389408 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/nigelbrown/.dbt', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, store_failures=False, indirect_selection='eager', threads=None, select=None, exclude=None, selector_name=None, state=None, defer=None, cls=<class 'dbt.task.test.TestTask'>, which='test', rpc_method='test')
+10:51:30.389559 [debug] [MainThread]: Tracking: tracking
+10:51:30.389787 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106cab250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106cabb80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106cab910>]}
+10:51:30.435714 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+10:51:30.436147 [debug] [MainThread]: Partial parsing: updated file: learn_dbt://tests/assert_accbal_more_than_100m.sql
+10:51:30.452131 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '13da75d0-4a2e-4bfc-9264-b73c92158f71', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106f39f10>]}
+10:51:30.455650 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '13da75d0-4a2e-4bfc-9264-b73c92158f71', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105f37e50>]}
+10:51:30.455837 [info ] [MainThread]: Found 7 models, 12 tests, 1 snapshot, 0 analyses, 182 macros, 4 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+10:51:30.456747 [info ] [MainThread]: 
+10:51:30.456958 [debug] [MainThread]: Acquiring new snowflake connection "master"
+10:51:30.457493 [debug] [ThreadPool]: Acquiring new snowflake connection "list_analytics_dbt_nigel"
+10:51:30.457681 [debug] [ThreadPool]: Acquiring new snowflake connection "list_analytics_snaphots"
+10:51:30.463350 [debug] [ThreadPool]: Using snowflake connection "list_analytics_dbt_nigel"
+10:51:30.464213 [debug] [ThreadPool]: Using snowflake connection "list_analytics_snaphots"
+10:51:30.464344 [debug] [ThreadPool]: On list_analytics_dbt_nigel: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_analytics_dbt_nigel"} */
+
+    show terse objects in analytics.dbt_nigel
+10:51:30.464426 [debug] [ThreadPool]: On list_analytics_snaphots: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_analytics_snaphots"} */
+
+    show terse objects in analytics.snaphots
+10:51:30.464504 [debug] [ThreadPool]: Opening a new connection, currently in state init
+10:51:30.464574 [debug] [ThreadPool]: Opening a new connection, currently in state init
+10:51:31.277214 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.81 seconds
+10:51:31.282087 [debug] [ThreadPool]: On list_analytics_snaphots: Close
+10:51:31.688639 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 1.22 seconds
+10:51:31.695113 [debug] [ThreadPool]: On list_analytics_dbt_nigel: Close
+10:51:31.866702 [info ] [MainThread]: 
+10:51:31.867304 [info ] [MainThread]: Running 1 on-run-start hook
+10:51:31.867702 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-start-0
+10:51:31.869765 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-start-0"
+10:51:31.873216 [info ] [MainThread]: 1 of 1 START hook: learn_dbt.on-run-start.0..................................... [RUN]
+10:51:31.874009 [debug] [MainThread]: Using snowflake connection "master"
+10:51:31.874334 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+create table if not exists audit (model text, state text, time timestamp_ltz)
+10:51:31.874503 [debug] [MainThread]: Opening a new connection, currently in state init
+10:51:32.406127 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.53 seconds
+10:51:32.407526 [info ] [MainThread]: 1 of 1 OK hook: learn_dbt.on-run-start.0........................................ [[32mSUCCESS 1[0m in 0.53s]
+10:51:32.407909 [info ] [MainThread]: 
+10:51:32.408224 [debug] [MainThread]: On master: Close
+10:51:32.571432 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+10:51:32.572894 [info ] [MainThread]: 
+10:51:32.579866 [debug] [Thread-1  ]: Began running node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:32.580279 [debug] [Thread-2  ]: Began running node test.learn_dbt.assert_accbal_more_than_100m
+10:51:32.580436 [debug] [Thread-3  ]: Began running node test.learn_dbt.assert_under_10_percent_null
+10:51:32.580626 [debug] [Thread-4  ]: Began running node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:32.580779 [info ] [Thread-1  ]: 1 of 12 START test accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE [RUN]
+10:51:32.581029 [info ] [Thread-2  ]: 2 of 12 START test assert_accbal_more_than_100m................................. [RUN]
+10:51:32.581229 [info ] [Thread-3  ]: 3 of 12 START test assert_under_10_percent_null................................. [RUN]
+10:51:32.581427 [info ] [Thread-4  ]: 4 of 12 START test not_null_snowflake_cumulative_sales_o_orderdate.............. [RUN]
+10:51:32.581972 [debug] [Thread-1  ]: Acquiring new snowflake connection "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:32.582428 [debug] [Thread-2  ]: Acquiring new snowflake connection "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:32.582807 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.learn_dbt.assert_under_10_percent_null"
+10:51:32.583148 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:32.583301 [debug] [Thread-1  ]: Began compiling node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:32.583435 [debug] [Thread-2  ]: Began compiling node test.learn_dbt.assert_accbal_more_than_100m
+10:51:32.583561 [debug] [Thread-3  ]: Began compiling node test.learn_dbt.assert_under_10_percent_null
+10:51:32.583682 [debug] [Thread-4  ]: Began compiling node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:32.583854 [debug] [Thread-1  ]: Compiling test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:32.583986 [debug] [Thread-2  ]: Compiling test.learn_dbt.assert_accbal_more_than_100m
+10:51:32.584112 [debug] [Thread-3  ]: Compiling test.learn_dbt.assert_under_10_percent_null
+10:51:32.584237 [debug] [Thread-4  ]: Compiling test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:32.596513 [debug] [Thread-1  ]: Writing injected SQL for node "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:32.598070 [debug] [Thread-2  ]: Writing injected SQL for node "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:32.599389 [debug] [Thread-3  ]: Writing injected SQL for node "test.learn_dbt.assert_under_10_percent_null"
+10:51:32.603310 [debug] [Thread-4  ]: Writing injected SQL for node "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:32.603867 [debug] [Thread-3  ]: finished collecting timing info
+10:51:32.603963 [debug] [Thread-1  ]: finished collecting timing info
+10:51:32.604068 [debug] [Thread-2  ]: finished collecting timing info
+10:51:32.604159 [debug] [Thread-3  ]: Began executing node test.learn_dbt.assert_under_10_percent_null
+10:51:32.604223 [debug] [Thread-4  ]: finished collecting timing info
+10:51:32.604311 [debug] [Thread-1  ]: Began executing node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:32.604394 [debug] [Thread-2  ]: Began executing node test.learn_dbt.assert_accbal_more_than_100m
+10:51:32.615079 [debug] [Thread-3  ]: Writing runtime SQL for node "test.learn_dbt.assert_under_10_percent_null"
+10:51:32.615172 [debug] [Thread-4  ]: Began executing node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:32.616100 [debug] [Thread-1  ]: Writing runtime SQL for node "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:32.616965 [debug] [Thread-2  ]: Writing runtime SQL for node "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:32.617947 [debug] [Thread-4  ]: Writing runtime SQL for node "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:32.618456 [debug] [Thread-3  ]: Using snowflake connection "test.learn_dbt.assert_under_10_percent_null"
+10:51:32.619028 [debug] [Thread-1  ]: Using snowflake connection "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"
+10:51:32.619132 [debug] [Thread-3  ]: On test.learn_dbt.assert_under_10_percent_null: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.assert_under_10_percent_null"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select sum (case when id is null then 1 else 0 end) / count(*) as total_nulls
+from analytics.dbt_nigel.first_model
+having sum (case when id is null then 1 else 0 end) / count(*) > .4
+      
+    ) dbt_internal_test
+10:51:32.619256 [debug] [Thread-1  ]: On test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with all_values as (
+
+    select
+        c_mktsegment as value_field,
+        count(*) as n_records
+
+    from analytics.dbt_nigel.playing_with_tests
+    group by c_mktsegment
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'BUILDING','AUTOMOBILE','MACHINERY','HOUSEHOLD','FURNITURE'
+)
+
+
+
+      
+    ) dbt_internal_test
+10:51:32.619589 [debug] [Thread-2  ]: Using snowflake connection "test.learn_dbt.assert_accbal_more_than_100m"
+10:51:32.619900 [debug] [Thread-4  ]: Using snowflake connection "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"
+10:51:32.619985 [debug] [Thread-3  ]: Opening a new connection, currently in state init
+10:51:32.620093 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+10:51:32.620183 [debug] [Thread-2  ]: On test.learn_dbt.assert_accbal_more_than_100m: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.assert_accbal_more_than_100m"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select sum(c_acctbal) as sum
+    from analytics.dbt_nigel.playing_with_tests
+having sum <= 100000000
+      
+    ) dbt_internal_test
+10:51:32.620267 [debug] [Thread-4  ]: On test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select *
+from analytics.dbt_nigel.snowflake_cumulative_sales
+where o_orderdate is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:32.621694 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+10:51:32.621794 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+10:51:33.759523 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 1.14 seconds
+10:51:33.760556 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 1.14 seconds
+10:51:33.764088 [debug] [Thread-4  ]: finished collecting timing info
+10:51:33.765847 [debug] [Thread-3  ]: finished collecting timing info
+10:51:33.766109 [debug] [Thread-4  ]: On test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856: Close
+10:51:33.766289 [debug] [Thread-3  ]: On test.learn_dbt.assert_under_10_percent_null: Close
+10:51:33.770105 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 1.15 seconds
+10:51:33.771482 [debug] [Thread-1  ]: finished collecting timing info
+10:51:33.772071 [debug] [Thread-1  ]: On test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3: Close
+10:51:33.946355 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 1.32 seconds
+10:51:33.949396 [debug] [Thread-2  ]: finished collecting timing info
+10:51:33.949727 [debug] [Thread-2  ]: On test.learn_dbt.assert_accbal_more_than_100m: Close
+10:51:33.964393 [info ] [Thread-1  ]: 1 of 12 PASS accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE [[32mPASS[0m in 1.38s]
+10:51:33.964806 [info ] [Thread-3  ]: 3 of 12 PASS assert_under_10_percent_null....................................... [[32mPASS[0m in 1.38s]
+10:51:33.965250 [debug] [Thread-1  ]: Finished running node test.learn_dbt.accepted_values_playing_with_tests_c_mktsegment__BUILDING__AUTOMOBILE__MACHINERY__HOUSEHOLD__FURNITURE.22353b7cb3
+10:51:33.965669 [debug] [Thread-3  ]: Finished running node test.learn_dbt.assert_under_10_percent_null
+10:51:33.965982 [debug] [Thread-1  ]: Began running node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:33.966419 [debug] [Thread-3  ]: Began running node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:33.966970 [info ] [Thread-4  ]: 4 of 12 PASS not_null_snowflake_cumulative_sales_o_orderdate.................... [[32mPASS[0m in 1.38s]
+10:51:33.967363 [info ] [Thread-1  ]: 5 of 12 START test not_null_snowflake_customer_purchases_c_custkey.............. [RUN]
+10:51:33.967597 [info ] [Thread-3  ]: 6 of 12 START test relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_ [RUN]
+10:51:33.967929 [debug] [Thread-4  ]: Finished running node test.learn_dbt.not_null_snowflake_cumulative_sales_o_orderdate.931c839856
+10:51:33.968428 [debug] [Thread-1  ]: Acquiring new snowflake connection "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:33.968878 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:33.969100 [debug] [Thread-4  ]: Began running node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:33.969362 [debug] [Thread-1  ]: Began compiling node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:33.969521 [debug] [Thread-3  ]: Began compiling node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:33.969681 [info ] [Thread-4  ]: 7 of 12 START test source_not_null_sample_customer_c_custkey.................... [RUN]
+10:51:33.969867 [debug] [Thread-1  ]: Compiling test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:33.970028 [debug] [Thread-3  ]: Compiling test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:33.970438 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:33.974726 [debug] [Thread-1  ]: Writing injected SQL for node "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:33.981252 [debug] [Thread-3  ]: Writing injected SQL for node "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:33.981436 [debug] [Thread-4  ]: Began compiling node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:33.981740 [debug] [Thread-4  ]: Compiling test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:33.984503 [debug] [Thread-4  ]: Writing injected SQL for node "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:33.984707 [debug] [Thread-1  ]: finished collecting timing info
+10:51:33.984846 [debug] [Thread-3  ]: finished collecting timing info
+10:51:33.984988 [debug] [Thread-1  ]: Began executing node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:33.985161 [debug] [Thread-3  ]: Began executing node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:33.985271 [debug] [Thread-4  ]: finished collecting timing info
+10:51:33.986560 [debug] [Thread-1  ]: Writing runtime SQL for node "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:33.987556 [debug] [Thread-3  ]: Writing runtime SQL for node "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:33.987677 [debug] [Thread-4  ]: Began executing node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:33.988883 [debug] [Thread-4  ]: Writing runtime SQL for node "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:33.989589 [debug] [Thread-1  ]: Using snowflake connection "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"
+10:51:33.990269 [debug] [Thread-3  ]: Using snowflake connection "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"
+10:51:33.990387 [debug] [Thread-1  ]: On test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select *
+from analytics.dbt_nigel.snowflake_customer_purchases
+where c_custkey is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:33.990795 [debug] [Thread-4  ]: Using snowflake connection "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"
+10:51:33.990909 [debug] [Thread-3  ]: On test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select id as from_field
+    from analytics.dbt_nigel.my_second_dbt_model
+    where id is not null
+),
+
+parent as (
+    select id as to_field
+    from analytics.dbt_nigel.first_model
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:33.991016 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+10:51:33.991127 [debug] [Thread-4  ]: On test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select *
+from snowflake_sample_data.tpch_sf1.customer
+where c_custkey is null
+
+
+
+      
+    ) dbt_internal_test
+10:51:33.991223 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+10:51:33.991859 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+10:51:34.146598 [info ] [Thread-2  ]: 2 of 12 PASS assert_accbal_more_than_100m....................................... [[32mPASS[0m in 1.56s]
+10:51:34.147116 [debug] [Thread-2  ]: Finished running node test.learn_dbt.assert_accbal_more_than_100m
+10:51:34.147325 [debug] [Thread-2  ]: Began running node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:34.147605 [info ] [Thread-2  ]: 8 of 12 START test source_unique_sample_customer_c_custkey...................... [RUN]
+10:51:34.148092 [debug] [Thread-2  ]: Acquiring new snowflake connection "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:34.148254 [debug] [Thread-2  ]: Began compiling node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:34.148413 [debug] [Thread-2  ]: Compiling test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:34.155327 [debug] [Thread-2  ]: Writing injected SQL for node "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:34.155959 [debug] [Thread-2  ]: finished collecting timing info
+10:51:34.156108 [debug] [Thread-2  ]: Began executing node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:34.157664 [debug] [Thread-2  ]: Writing runtime SQL for node "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:34.158603 [debug] [Thread-2  ]: Using snowflake connection "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"
+10:51:34.158740 [debug] [Thread-2  ]: On test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    c_custkey as unique_field,
+    count(*) as n_records
+
+from snowflake_sample_data.tpch_sf1.customer
+where c_custkey is not null
+group by c_custkey
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:34.158862 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+10:51:34.643239 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 0.65 seconds
+10:51:34.644823 [debug] [Thread-3  ]: finished collecting timing info
+10:51:34.645037 [debug] [Thread-3  ]: On test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9: Close
+10:51:34.645665 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 0.65 seconds
+10:51:34.647355 [debug] [Thread-4  ]: finished collecting timing info
+10:51:34.647521 [debug] [Thread-4  ]: On test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2: Close
+10:51:34.664586 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 0.67 seconds
+10:51:34.665851 [debug] [Thread-1  ]: finished collecting timing info
+10:51:34.666025 [debug] [Thread-1  ]: On test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502: Close
+10:51:34.765129 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.61 seconds
+10:51:34.767981 [debug] [Thread-2  ]: finished collecting timing info
+10:51:34.768319 [debug] [Thread-2  ]: On test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd: Close
+10:51:34.812255 [info ] [Thread-3  ]: 6 of 12 PASS relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.. [[32mPASS[0m in 0.84s]
+10:51:34.812824 [info ] [Thread-4  ]: 7 of 12 PASS source_not_null_sample_customer_c_custkey.......................... [[32mPASS[0m in 0.84s]
+10:51:34.813428 [debug] [Thread-3  ]: Finished running node test.learn_dbt.relationships_my_second_dbt_model_id__id__ref_my_first_dbt_model_.e73b057dc9
+10:51:34.813791 [debug] [Thread-4  ]: Finished running node test.learn_dbt.source_not_null_sample_customer_c_custkey.96001aaec2
+10:51:34.814098 [debug] [Thread-3  ]: Began running node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:34.814488 [debug] [Thread-4  ]: Began running node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:34.814795 [info ] [Thread-3  ]: 9 of 12 START test unique_my_first_dbt_model_id................................. [RUN]
+10:51:34.815014 [info ] [Thread-4  ]: 10 of 12 START test unique_my_second_dbt_model_id............................... [RUN]
+10:51:34.815560 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:34.816058 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:34.816258 [debug] [Thread-3  ]: Began compiling node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:34.816437 [debug] [Thread-4  ]: Began compiling node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:34.816648 [debug] [Thread-3  ]: Compiling test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:34.816816 [debug] [Thread-4  ]: Compiling test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:34.822275 [debug] [Thread-3  ]: Writing injected SQL for node "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:34.826114 [debug] [Thread-4  ]: Writing injected SQL for node "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:34.826991 [debug] [Thread-3  ]: finished collecting timing info
+10:51:34.827146 [debug] [Thread-4  ]: finished collecting timing info
+10:51:34.827293 [debug] [Thread-3  ]: Began executing node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:34.827611 [info ] [Thread-1  ]: 5 of 12 PASS not_null_snowflake_customer_purchases_c_custkey.................... [[32mPASS[0m in 0.86s]
+10:51:34.827777 [debug] [Thread-4  ]: Began executing node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:34.829419 [debug] [Thread-3  ]: Writing runtime SQL for node "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:34.831135 [debug] [Thread-4  ]: Writing runtime SQL for node "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:34.831275 [debug] [Thread-1  ]: Finished running node test.learn_dbt.not_null_snowflake_customer_purchases_c_custkey.482188c502
+10:51:34.831608 [debug] [Thread-1  ]: Began running node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:34.831908 [info ] [Thread-1  ]: 11 of 12 START test unique_snowflake_cumulative_sales_o_orderdate............... [RUN]
+10:51:34.832238 [debug] [Thread-1  ]: Acquiring new snowflake connection "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:34.832374 [debug] [Thread-1  ]: Began compiling node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:34.832981 [debug] [Thread-3  ]: Using snowflake connection "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"
+10:51:34.833496 [debug] [Thread-4  ]: Using snowflake connection "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"
+10:51:34.833592 [debug] [Thread-1  ]: Compiling test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:34.834257 [debug] [Thread-3  ]: On test.learn_dbt.unique_my_first_dbt_model_id.16e066b321: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_my_first_dbt_model_id.16e066b321"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.first_model
+where id is not null
+group by id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:34.834781 [debug] [Thread-4  ]: On test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    id as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.my_second_dbt_model
+where id is not null
+group by id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:34.837407 [debug] [Thread-1  ]: Writing injected SQL for node "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:34.837653 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+10:51:34.837899 [debug] [Thread-4  ]: Opening a new connection, currently in state closed
+10:51:34.839930 [debug] [Thread-1  ]: finished collecting timing info
+10:51:34.840101 [debug] [Thread-1  ]: Began executing node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:34.841344 [debug] [Thread-1  ]: Writing runtime SQL for node "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:34.842993 [debug] [Thread-1  ]: Using snowflake connection "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"
+10:51:34.843176 [debug] [Thread-1  ]: On test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    o_orderdate as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.snowflake_cumulative_sales
+where o_orderdate is not null
+group by o_orderdate
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:34.843273 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+10:51:34.955565 [info ] [Thread-2  ]: 8 of 12 PASS source_unique_sample_customer_c_custkey............................ [[32mPASS[0m in 0.81s]
+10:51:34.955927 [debug] [Thread-2  ]: Finished running node test.learn_dbt.source_unique_sample_customer_c_custkey.f7f30c39fd
+10:51:34.956098 [debug] [Thread-2  ]: Began running node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:34.956235 [info ] [Thread-2  ]: 12 of 12 START test unique_snowflake_customer_purchases_c_custkey............... [RUN]
+10:51:34.956709 [debug] [Thread-2  ]: Acquiring new snowflake connection "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:34.956856 [debug] [Thread-2  ]: Began compiling node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:34.956990 [debug] [Thread-2  ]: Compiling test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:34.959839 [debug] [Thread-2  ]: Writing injected SQL for node "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:34.960289 [debug] [Thread-2  ]: finished collecting timing info
+10:51:34.960420 [debug] [Thread-2  ]: Began executing node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:34.961618 [debug] [Thread-2  ]: Writing runtime SQL for node "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:34.962525 [debug] [Thread-2  ]: Using snowflake connection "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"
+10:51:34.962678 [debug] [Thread-2  ]: On test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    c_custkey as unique_field,
+    count(*) as n_records
+
+from analytics.dbt_nigel.snowflake_customer_purchases
+where c_custkey is not null
+group by c_custkey
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+10:51:34.962797 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+10:51:35.475169 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 0.64 seconds
+10:51:35.477349 [debug] [Thread-3  ]: finished collecting timing info
+10:51:35.477619 [debug] [Thread-3  ]: On test.learn_dbt.unique_my_first_dbt_model_id.16e066b321: Close
+10:51:35.479602 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 0.64 seconds
+10:51:35.481413 [debug] [Thread-4  ]: finished collecting timing info
+10:51:35.481756 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 0.64 seconds
+10:51:35.482648 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.52 seconds
+10:51:35.482799 [debug] [Thread-4  ]: On test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493: Close
+10:51:35.483969 [debug] [Thread-1  ]: finished collecting timing info
+10:51:35.485152 [debug] [Thread-2  ]: finished collecting timing info
+10:51:35.485987 [debug] [Thread-1  ]: On test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed: Close
+10:51:35.486295 [debug] [Thread-2  ]: On test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f: Close
+10:51:35.655649 [info ] [Thread-4  ]: 10 of 12 PASS unique_my_second_dbt_model_id..................................... [[32mPASS[0m in 0.84s]
+10:51:35.656237 [info ] [Thread-3  ]: 9 of 12 PASS unique_my_first_dbt_model_id....................................... [[32mPASS[0m in 0.84s]
+10:51:35.657181 [debug] [Thread-4  ]: Finished running node test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493
+10:51:35.657618 [debug] [Thread-3  ]: Finished running node test.learn_dbt.unique_my_first_dbt_model_id.16e066b321
+10:51:35.658873 [info ] [Thread-1  ]: 11 of 12 PASS unique_snowflake_cumulative_sales_o_orderdate..................... [[32mPASS[0m in 0.83s]
+10:51:35.659356 [debug] [Thread-1  ]: Finished running node test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed
+10:51:35.659909 [info ] [Thread-2  ]: 12 of 12 PASS unique_snowflake_customer_purchases_c_custkey..................... [[32mPASS[0m in 0.70s]
+10:51:35.660204 [debug] [Thread-2  ]: Finished running node test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f
+10:51:35.661625 [debug] [MainThread]: Acquiring new snowflake connection "master"
+10:51:35.661929 [info ] [MainThread]: 
+10:51:35.662206 [info ] [MainThread]: Running 3 on-run-end hooks
+10:51:35.662497 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-0
+10:51:35.664334 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-0"
+10:51:35.665455 [info ] [MainThread]: 1 of 3 START hook: learn_dbt.on-run-end.0....................................... [RUN]
+10:51:35.665988 [debug] [MainThread]: Using snowflake connection "master"
+10:51:35.666134 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant usage on schema analytics.dbt to role analyst
+10:51:35.666265 [debug] [MainThread]: Opening a new connection, currently in state closed
+10:51:36.171138 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.5 seconds
+10:51:36.173012 [info ] [MainThread]: 1 of 3 OK hook: learn_dbt.on-run-end.0.......................................... [[32mSUCCESS 1[0m in 0.51s]
+10:51:36.173528 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-1
+10:51:36.175488 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-1"
+10:51:36.176731 [info ] [MainThread]: 2 of 3 START hook: learn_dbt.on-run-end.1....................................... [RUN]
+10:51:36.177402 [debug] [MainThread]: Using snowflake connection "master"
+10:51:36.177595 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant select on all tables in schema analytics.dbt to role analyst
+10:51:36.328621 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.15 seconds
+10:51:36.331185 [info ] [MainThread]: 2 of 3 OK hook: learn_dbt.on-run-end.1.......................................... [[32mSUCCESS 1[0m in 0.15s]
+10:51:36.331822 [debug] [MainThread]: Compiling operation.learn_dbt.learn_dbt-on-run-end-2
+10:51:36.334297 [debug] [MainThread]: Writing injected SQL for node "operation.learn_dbt.learn_dbt-on-run-end-2"
+10:51:36.335405 [info ] [MainThread]: 3 of 3 START hook: learn_dbt.on-run-end.2....................................... [RUN]
+10:51:36.335964 [debug] [MainThread]: Using snowflake connection "master"
+10:51:36.336130 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "master"} */
+grant select on all views in schema analytics.dbt to role analyst
+10:51:36.457212 [debug] [MainThread]: SQL status: SUCCESS 1 in 0.12 seconds
+10:51:36.460415 [info ] [MainThread]: 3 of 3 OK hook: learn_dbt.on-run-end.2.......................................... [[32mSUCCESS 1[0m in 0.12s]
+10:51:36.461018 [info ] [MainThread]: 
+10:51:36.461763 [debug] [MainThread]: On master: Close
+10:51:36.623238 [info ] [MainThread]: 
+10:51:36.623920 [info ] [MainThread]: Finished running 12 tests, 4 hooks in 6.17s.
+10:51:36.624278 [debug] [MainThread]: Connection 'master' was properly closed.
+10:51:36.624459 [debug] [MainThread]: Connection 'test.learn_dbt.unique_snowflake_cumulative_sales_o_orderdate.e6791ce0ed' was properly closed.
+10:51:36.624620 [debug] [MainThread]: Connection 'test.learn_dbt.unique_snowflake_customer_purchases_c_custkey.fea628232f' was properly closed.
+10:51:36.624777 [debug] [MainThread]: Connection 'test.learn_dbt.unique_my_first_dbt_model_id.16e066b321' was properly closed.
+10:51:36.624929 [debug] [MainThread]: Connection 'test.learn_dbt.unique_my_second_dbt_model_id.57a0f8c493' was properly closed.
+10:51:36.634240 [info ] [MainThread]: 
+10:51:36.634548 [info ] [MainThread]: [32mCompleted successfully[0m
+10:51:36.634840 [info ] [MainThread]: 
+10:51:36.635051 [info ] [MainThread]: Done. PASS=12 WARN=0 ERROR=0 SKIP=0 TOTAL=12
+10:51:36.635400 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111d4efa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106cecaf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111d52940>]}

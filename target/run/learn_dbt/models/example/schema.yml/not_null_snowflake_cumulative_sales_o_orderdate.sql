@@ -8,7 +8,7 @@ select
     
 
 select *
-from analytics.dbt.snowflake_cumulative_sales
+from analytics.dbt_nigel.snowflake_cumulative_sales
 where o_orderdate is null
 
 

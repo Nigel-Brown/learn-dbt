@@ -8,7 +8,7 @@ with all_values as (
         c_mktsegment as value_field,
         count(*) as n_records
 
-    from analytics.dbt.playing_with_tests
+    from analytics.dbt_nigel.playing_with_tests
     group by c_mktsegment
 
 )

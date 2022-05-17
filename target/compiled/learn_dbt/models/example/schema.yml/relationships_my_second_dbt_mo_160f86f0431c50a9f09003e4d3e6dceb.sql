@@ -4,13 +4,13 @@
 
 with child as (
     select id as from_field
-    from analytics.dbt.my_second_dbt_model
+    from analytics.dbt_nigel.my_second_dbt_model
     where id is not null
 ),
 
 parent as (
     select id as to_field
-    from analytics.dbt.first_model
+    from analytics.dbt_nigel.first_model
 )
 
 select

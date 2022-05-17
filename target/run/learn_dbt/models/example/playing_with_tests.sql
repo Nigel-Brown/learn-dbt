@@ -15,7 +15,8 @@ select
       THEN 'segment_1'
     ELSE 'segment_2'
   END
- mkt_segment_adjusted
+ mkt_segment_adjusted,
+  c_acctbal
 from sample_customer
       );
     

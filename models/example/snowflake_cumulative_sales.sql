@@ -12,5 +12,4 @@ from orders
 where year(o_orderdate) = 1996
 {% endif %}
 
-
 order by o_orderdate 

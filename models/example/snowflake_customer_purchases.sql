@@ -8,8 +8,6 @@ sample_orders as (
 	from {{source('sample', 'orders')}}
 )
 
-
-
 select c.c_custkey
      , c.c_name
      , c.c_nationkey as nation

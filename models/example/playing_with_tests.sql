@@ -1,2 +1,10 @@
+WITH sample_customer AS (
 select * 
-from "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."CUSTOMER"
+from {{ source('sample', 'customer') }}
+)
+
+select
+  c_custkey,
+  c_mktsegment,
+  {{ rename_segments(c_mktsegment)}} mkt_segment_adjusted
+from sample_customer

@@ -46,7 +46,7 @@ models:
     columns:
       - name: c_custkey
         description: "The primary key for this table"
-       - name: c_mktsegment
+      - name: c_mktsegment
         tests: 
           - accepted_values:
              values: ['BUILDING', 'AUTOMOBILE', 'MACHINERY', 'HOUSEHOLD', 'FURNITURE']

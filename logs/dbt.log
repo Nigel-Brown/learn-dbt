@@ -31611,3 +31611,14 @@ grant select on all views in schema analytics.dbt to role analyst
 10:51:36.634840 [info ] [MainThread]: 
 10:51:36.635051 [info ] [MainThread]: Done. PASS=12 WARN=0 ERROR=0 SKIP=0 TOTAL=12
 10:51:36.635400 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111d4efa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106cecaf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111d52940>]}
+
+
+============================== 2022-10-13 11:35:13.930713 | 6e4f5289-5ccd-44b3-89eb-6ce08ea26615 ==============================
+[0m11:35:13.930719 [info ] [MainThread]: Running with dbt=1.2.1
+[0m11:35:13.931360 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/nigelbrown/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'project_name': 'dbtlearn', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m11:35:13.931456 [debug] [MainThread]: Tracking: tracking
+[0m11:35:13.951663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120e01250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120e01460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120e01340>]}
+[0m11:35:13.952580 [info ] [MainThread]: Setting up your profile.
+[0m11:37:35.032456 [info ] [MainThread]: Profile learn-dbt written to /Users/nigelbrown/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m11:37:35.034370 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120debdf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120e2a8b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120e2adf0>]}
+[0m11:37:35.034918 [debug] [MainThread]: Flushing usage events

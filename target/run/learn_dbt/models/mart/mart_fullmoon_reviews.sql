@@ -1,7 +1,9 @@
 
+  
+    
 
-      create or replace transient table airbnb.dev.mart_fullmoon_reviews  as
-      (
+        create or replace transient table airbnb.dev.mart_fullmoon_reviews  as
+        (
 
 with fact_reviews as (
   select * from airbnb.dev.fact_reviews
@@ -17,5 +19,6 @@ select r.*
 from fact_reviews as r
 left join full_moon_dates fm
 on to_date(r.review_date) = dateadd(day, 1, fm.full_moon_date)
-      );
-    
+        );
+      
+  

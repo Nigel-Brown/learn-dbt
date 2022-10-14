@@ -13120,3 +13120,714 @@ select
 [0m21:37:41.582842 [info ] [MainThread]: Done.
 [0m21:37:41.583179 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109075af0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109320160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109397250>]}
 [0m21:37:41.583377 [debug] [MainThread]: Flushing usage events
+
+
+============================== 2022-10-14 06:55:27.315924 | b8d77fe6-e433-4bf7-b950-5e0cc3bf6696 ==============================
+[0m06:55:27.315947 [info ] [MainThread]: Running with dbt=1.2.1
+[0m06:55:27.316544 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/nigelbrown/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'which': 'snapshot', 'rpc_method': 'snapshot', 'indirect_selection': 'eager'}
+[0m06:55:27.316668 [debug] [MainThread]: Tracking: tracking
+[0m06:55:27.316900 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109c0bb20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109c0ba00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109c0beb0>]}
+[0m06:55:27.349193 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m06:55:27.349497 [debug] [MainThread]: Partial parsing: added file: learn_dbt://snapshots/scd_raw_listings.sql
+[0m06:55:27.357703 [debug] [MainThread]: 1699: static parser successfully parsed src/src_reviews.sql
+[0m06:55:27.364536 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_hosts_cleansed.sql
+[0m06:55:27.366876 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_listings_cleansed.sql
+[0m06:55:27.368233 [debug] [MainThread]: 1603: static parser failed on fact/fact_reviews.sql
+[0m06:55:27.372591 [debug] [MainThread]: 1602: parser fallback to jinja rendering on fact/fact_reviews.sql
+[0m06:55:27.373182 [debug] [MainThread]: 1699: static parser successfully parsed src/src_listings.sql
+[0m06:55:27.374495 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_listings_w_hosts.sql
+[0m06:55:27.375772 [debug] [MainThread]: 1699: static parser successfully parsed src/src_hosts.sql
+[0m06:55:27.384706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109d5c310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109de63a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e26dc0>]}
+[0m06:55:27.384895 [debug] [MainThread]: Flushing usage events
+[0m06:55:27.942698 [error] [MainThread]: Encountered an error:
+Parsing Error in snapshot scd_raw_listings (snapshots/scd_raw_listings.sql)
+  at path []: Snapshots must be configured with a 'strategy', 'unique_key', and 'target_schema'.
+[0m06:55:27.945463 [error] [MainThread]: Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/base.py", line 342, in render_update
+    self.update_parsed_node_config(node, config, context=context)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/base.py", line 276, in update_parsed_node_config
+    config_dict = config.build_config_dict(patch_config_dict=patch_config_dict)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/context/context_config.py", line 323, in build_config_dict
+    return src.calculate_node_config_dict(
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/context/context_config.py", line 206, in calculate_node_config_dict
+    finalized = config.finalize_and_validate()
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/contracts/graph/model_config.py", line 591, in finalize_and_validate
+    self.validate(data)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/contracts/graph/model_config.py", line 562, in validate
+    raise ValidationError(
+hologram.ValidationError: Snapshots must be configured with a 'strategy', 'unique_key', and 'target_schema'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/main.py", line 129, in main
+    results, succeeded = handle_and_check(args)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/main.py", line 191, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/main.py", line 238, in run_from_args
+    results = task.run()
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/task/runnable.py", line 451, in run
+    self._runtime_initialize()
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/task/runnable.py", line 159, in _runtime_initialize
+    super()._runtime_initialize()
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/task/runnable.py", line 92, in _runtime_initialize
+    self.load_manifest()
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/task/runnable.py", line 81, in load_manifest
+    self.manifest = ManifestLoader.get_full_manifest(self.config)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/manifest.py", line 219, in get_full_manifest
+    manifest = loader.load()
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/manifest.py", line 349, in load
+    self.parse_project(
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/manifest.py", line 473, in parse_project
+    parser.parse_file(block)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/snapshots.py", line 78, in parse_file
+    self.parse_node(block)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/base.py", line 366, in parse_node
+    self.render_update(node, config)
+  File "/opt/homebrew/Cellar/dbt-snowflake/1.2.0/libexec/lib/python3.9/site-packages/dbt/parser/base.py", line 346, in render_update
+    raise ParsingException(msg, node=node) from exc
+dbt.exceptions.ParsingException: Parsing Error in snapshot scd_raw_listings (snapshots/scd_raw_listings.sql)
+  at path []: Snapshots must be configured with a 'strategy', 'unique_key', and 'target_schema'.
+
+
+
+============================== 2022-10-14 06:56:19.844005 | 3e01c8fc-78df-4f8d-83fd-70a39c93531c ==============================
+[0m06:56:19.844029 [info ] [MainThread]: Running with dbt=1.2.1
+[0m06:56:19.860039 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/nigelbrown/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'which': 'snapshot', 'rpc_method': 'snapshot', 'indirect_selection': 'eager'}
+[0m06:56:19.860202 [debug] [MainThread]: Tracking: tracking
+[0m06:56:19.860453 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12193a760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12193a520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12193a9d0>]}
+[0m06:56:19.888884 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m06:56:19.889171 [debug] [MainThread]: Partial parsing: added file: learn_dbt://snapshots/scd_raw_listings.sql
+[0m06:56:19.897746 [debug] [MainThread]: 1699: static parser successfully parsed src/src_reviews.sql
+[0m06:56:19.907769 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_hosts_cleansed.sql
+[0m06:56:19.916940 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_listings_w_hosts.sql
+[0m06:56:19.918633 [debug] [MainThread]: 1699: static parser successfully parsed src/src_listings.sql
+[0m06:56:19.920481 [debug] [MainThread]: 1699: static parser successfully parsed src/src_hosts.sql
+[0m06:56:19.921963 [debug] [MainThread]: 1603: static parser failed on fact/fact_reviews.sql
+[0m06:56:19.926738 [debug] [MainThread]: 1602: parser fallback to jinja rendering on fact/fact_reviews.sql
+[0m06:56:19.928048 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_listings_cleansed.sql
+[0m06:56:19.944696 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3e01c8fc-78df-4f8d-83fd-70a39c93531c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x121d790a0>]}
+[0m06:56:19.948719 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3e01c8fc-78df-4f8d-83fd-70a39c93531c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x121ba9f40>]}
+[0m06:56:19.948916 [info ] [MainThread]: Found 8 models, 2 tests, 1 snapshot, 0 analyses, 267 macros, 0 operations, 1 seed file, 3 sources, 0 exposures, 0 metrics
+[0m06:56:19.949105 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3e01c8fc-78df-4f8d-83fd-70a39c93531c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12053dbb0>]}
+[0m06:56:19.949855 [info ] [MainThread]: 
+[0m06:56:19.950137 [debug] [MainThread]: Acquiring new snowflake connection "master"
+[0m06:56:19.950514 [debug] [ThreadPool]: Acquiring new snowflake connection "list_airbnb"
+[0m06:56:19.956767 [debug] [ThreadPool]: Using snowflake connection "list_airbnb"
+[0m06:56:19.956916 [debug] [ThreadPool]: On list_airbnb: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_airbnb"} */
+show terse schemas in database airbnb
+    limit 10000
+[0m06:56:19.957027 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:56:20.876944 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.92 seconds
+[0m06:56:20.880066 [debug] [ThreadPool]: On list_airbnb: Close
+[0m06:56:21.073343 [debug] [ThreadPool]: Acquiring new snowflake connection "list_airbnb_dev"
+[0m06:56:21.083066 [debug] [ThreadPool]: Using snowflake connection "list_airbnb_dev"
+[0m06:56:21.083390 [debug] [ThreadPool]: On list_airbnb_dev: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_airbnb_dev"} */
+show terse objects in airbnb.dev
+[0m06:56:21.083584 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m06:56:21.837035 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.75 seconds
+[0m06:56:21.841007 [debug] [ThreadPool]: On list_airbnb_dev: Close
+[0m06:56:22.031432 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3e01c8fc-78df-4f8d-83fd-70a39c93531c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12192d1c0>]}
+[0m06:56:22.032707 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m06:56:22.033286 [info ] [MainThread]: 
+[0m06:56:22.040519 [debug] [Thread-1  ]: Began running node snapshot.learn_dbt.scd_raw_listings
+[0m06:56:22.040995 [info ] [Thread-1  ]: 1 of 1 START snapshot dev.scd_raw_listings ..................................... [RUN]
+[0m06:56:22.041611 [debug] [Thread-1  ]: Acquiring new snowflake connection "snapshot.learn_dbt.scd_raw_listings"
+[0m06:56:22.041828 [debug] [Thread-1  ]: Began compiling node snapshot.learn_dbt.scd_raw_listings
+[0m06:56:22.042052 [debug] [Thread-1  ]: Compiling snapshot.learn_dbt.scd_raw_listings
+[0m06:56:22.045982 [debug] [Thread-1  ]: finished collecting timing info
+[0m06:56:22.046226 [debug] [Thread-1  ]: Began executing node snapshot.learn_dbt.scd_raw_listings
+[0m06:56:22.090098 [debug] [Thread-1  ]: Writing runtime SQL for node "snapshot.learn_dbt.scd_raw_listings"
+[0m06:56:22.091038 [debug] [Thread-1  ]: Using snowflake connection "snapshot.learn_dbt.scd_raw_listings"
+[0m06:56:22.091168 [debug] [Thread-1  ]: On snapshot.learn_dbt.scd_raw_listings: /* {"app": "dbt", "dbt_version": "1.2.1", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "snapshot.learn_dbt.scd_raw_listings"} */
+create or replace transient table airbnb.dev.scd_raw_listings  as
+      (
+
+    select *,
+        md5(coalesce(cast(id as varchar ), '')
+         || '|' || coalesce(cast(updated_at as varchar ), '')
+        ) as dbt_scd_id,
+        updated_at as dbt_updated_at,
+        updated_at as dbt_valid_from,
+        nullif(updated_at, updated_at) as dbt_valid_to
+    from (
+        
+
+
+
+select * from airbnb.raw.raw_listings
+
+    ) sbq
+
+
+
+      );
+[0m06:56:22.091274 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:56:23.874030 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 1.78 seconds
+[0m06:56:23.903433 [debug] [Thread-1  ]: finished collecting timing info
+[0m06:56:23.903814 [debug] [Thread-1  ]: On snapshot.learn_dbt.scd_raw_listings: Close
+[0m06:56:24.064802 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3e01c8fc-78df-4f8d-83fd-70a39c93531c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x121ba9eb0>]}
+[0m06:56:24.065839 [info ] [Thread-1  ]: 1 of 1 OK snapshotted dev.scd_raw_listings ..................................... [[32mSUCCESS 1[0m in 2.02s]
+[0m06:56:24.066770 [debug] [Thread-1  ]: Finished running node snapshot.learn_dbt.scd_raw_listings
+[0m06:56:24.068468 [debug] [MainThread]: Acquiring new snowflake connection "master"
+[0m06:56:24.069129 [info ] [MainThread]: 
+[0m06:56:24.069578 [info ] [MainThread]: Finished running 1 snapshot in 0 hours 0 minutes and 4.12 seconds (4.12s).
+[0m06:56:24.069963 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m06:56:24.070164 [debug] [MainThread]: Connection 'snapshot.learn_dbt.scd_raw_listings' was properly closed.
+[0m06:56:24.078303 [info ] [MainThread]: 
+[0m06:56:24.078754 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m06:56:24.079128 [info ] [MainThread]: 
+[0m06:56:24.079439 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m06:56:24.079853 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x123257700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12335a850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12335ad60>]}
+[0m06:56:24.080154 [debug] [MainThread]: Flushing usage events
+
+
+============================== 2022-10-14 07:34:13.288114 | c5159938-40d2-4bc6-aea9-8d0221ab8942 ==============================
+[0m07:34:13.288202 [info ] [MainThread]: Running with dbt=1.3.0
+[0m07:34:13.290828 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/nigelbrown/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'parse_only': False, 'which': 'compile', 'rpc_method': 'compile', 'indirect_selection': 'eager'}
+[0m07:34:13.291189 [debug] [MainThread]: Tracking: tracking
+[0m07:34:13.291700 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114bc4c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114bc4bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114bc4b50>]}
+[0m07:34:13.318066 [debug] [MainThread]: Failed to load parsed file from disk at /Users/nigelbrown/learn-dbt/target/partial_parse.msgpack: Field "nodes" of type MutableMapping[str, Union[CompiledAnalysisNode, CompiledSingularTestNode, CompiledModelNode, CompiledHookNode, CompiledRPCNode, CompiledSqlNode, CompiledGenericTestNode, CompiledSeedNode, CompiledSnapshotNode, ParsedAnalysisNode, ParsedSingularTestNode, ParsedHookNode, ParsedModelNode, ParsedRPCNode, ParsedSqlNode, ParsedGenericTestNode, ParsedSeedNode, ParsedSnapshotNode]] in Manifest has invalid value {'test.learn_dbt.dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4.1e56c20a65': {'raw_sql': '{{ dbt_expectations.test_expect_column_distinct_count_to_equal(**_dbt_generic_test_kwargs) }}{{ config(alias="dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5") }}', 'test_metadata': {'name': 'expect_column_distinct_count_to_equal', 'kwargs': {'value': 4, 'column_name': 'room_type', 'model': "{{ get_where_subquery(source('airbnb', 'listings')) }}"}, 'namespace': 'dbt_expectations'}, 'resource_type': 'test', 'depends_on': {'macros': [None, 'macro.dbt.get_where_subquery'], 'nodes': ['source.learn_dbt.airbnb.listings']}, 'config': {'enabled': True, 'alias': 'dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5', 'schema': 'dbt_test__audit', 'database': None, 'tags': [], 'meta': {}, 'materialized': 'test', 'severity': 'ERROR', 'store_failures': None, 'where': None, 'limit': None, 'fail_calc': 'count(*)', 'warn_if': '!= 0', 'error_if': '!= 0'}, 'database': 'airbnb', 'schema': 'dev_dbt_test__audit', 'fqn': ['learn_dbt', 'dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4'], 'unique_id': 'test.learn_dbt.dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4.1e56c20a65', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5.sql', 'original_file_path': 'models/sources.yml', 'name': 'dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4', 'alias': 'dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5', 'checksum': {'name': 'none', 'checksum': ''}, 'tags': [], 'refs': [], 'sources': [['airbnb', 'listings']], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'alias': 'dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5'}, 'created_at': 1665693510.687236, 'config_call_dict': {'alias': 'dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5'}, 'column_name': 'room_type', 'file_key_name': 'sources.airbnb'}, 'test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9': {'raw_sql': '{{ dbt_expectations.test_expect_column_values_to_match_regex(**_dbt_generic_test_kwargs) }}{{ config(alias="dbt_expectations_source_expect_a60b59a84fbc4577a11df360c50013bb") }}', 'test_metadata': {'name': 'expect_column_values_to_match_regex', 'kwargs': {'regex': '^\\\\$[0-9][0-9\\\\.]+$', 'column_name': 'price', 'model': "{{ get_where_subquery(source('airbnb', 'listings')) }}"}, 'namespace': 'dbt_expectations'}, 'resource_type': 'test', 'depends_on': {'macros': [None, 'macro.dbt.get_where_subquery'], 'nodes': ['source.learn_dbt.airbnb.listings']}, 'config': {'enabled': True, 'alias': 'dbt_expectations_source_expect_a60b59a84fbc4577a11df360c50013bb', 'schema': 'dbt_test__audit', 'database': None, 'tags': [], 'meta': {}, 'materialized': 'test', 'severity': 'ERROR', 'store_failures': None, 'where': None, 'limit': None, 'fail_calc': 'count(*)', 'warn_if': '!= 0', 'error_if': '!= 0'}, 'database': 'airbnb', 'schema': 'dev_dbt_test__audit', 'fqn': ['learn_dbt', 'dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_'], 'unique_id': 'test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'dbt_expectations_source_expect_a60b59a84fbc4577a11df360c50013bb.sql', 'original_file_path': 'models/sources.yml', 'name': 'dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_', 'alias': 'dbt_expectations_source_expect_a60b59a84fbc4577a11df360c50013bb', 'checksum': {'name': 'none', 'checksum': ''}, 'tags': [], 'refs': [], 'sources': [['airbnb', 'listings']], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'alias': 'dbt_expectations_source_expect_a60b59a84fbc4577a11df360c50013bb'}, 'created_at': 1665693510.692728, 'config_call_dict': {'alias': 'dbt_expectations_source_expect_a60b59a84fbc4577a11df360c50013bb'}, 'column_name': 'price', 'file_key_name': 'sources.airbnb'}, 'seed.learn_dbt.seed_full_moon_dates': {'raw_sql': '', 'resource_type': 'seed', 'depends_on': {'macros': [], 'nodes': []}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'seed', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'quote_columns': None, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'seed_full_moon_dates'], 'unique_id': 'seed.learn_dbt.seed_full_moon_dates', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'seed_full_moon_dates.csv', 'original_file_path': 'seeds/seed_full_moon_dates.csv', 'name': 'seed_full_moon_dates', 'alias': 'seed_full_moon_dates', 'checksum': {'name': 'sha256', 'checksum': '5fbd1d724cc09a6773333ce1024dcea9bfd78b809ba258210d244fc4455a4209'}, 'tags': [], 'refs': [], 'sources': [], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {}, 'created_at': 1665693884.987585, 'config_call_dict': {}}, 'model.learn_dbt.mart_fullmoon_reviews': {'raw_sql': "{{ config (\n  materialized = 'table' )\n}}\n\nwith fact_reviews as (\n  select * from {{ ref('fact_reviews')}}\n),\nfull_moon_dates as (\n  select * from {{ ref('seed_full_moon_dates')}}\n)\n\nselect r.*\n       ,case when fm.full_moon_date is null then 'not full moon'\n        else 'full moon'\n        end as is_full_moon\nfrom fact_reviews as r\nleft join full_moon_dates fm\non to_date(r.review_date) = dateadd(day, 1, fm.full_moon_date)", 'resource_type': 'model', 'depends_on': {'macros': [], 'nodes': ['model.learn_dbt.fact_reviews', 'seed.learn_dbt.seed_full_moon_dates']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'table', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'mart', 'mart_fullmoon_reviews'], 'unique_id': 'model.learn_dbt.mart_fullmoon_reviews', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'mart/mart_fullmoon_reviews.sql', 'original_file_path': 'models/mart/mart_fullmoon_reviews.sql', 'name': 'mart_fullmoon_reviews', 'alias': 'mart_fullmoon_reviews', 'checksum': {'name': 'sha256', 'checksum': 'ee6bdaddc7741b591f6eb768e94b5dbcd5963c32b76ca35bc53f306fc45b00ff'}, 'tags': [], 'refs': [['fact_reviews'], ['seed_full_moon_dates']], 'sources': [], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'table'}, 'created_at': 1665694667.706471, 'config_call_dict': {'materialized': 'table'}}, 'model.learn_dbt.src_reviews': {'raw_sql': "with raw_reviews as (\n    select * from {{source('airbnb', 'reviews')}}\n)\nselect \n listing_id\n ,date as review_date\n ,reviewer_name\n ,comments as review_text\n ,sentiment as review_sentiment\nfrom raw_reviews", 'resource_type': 'model', 'depends_on': {'macros': [], 'nodes': ['source.learn_dbt.airbnb.reviews']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'ephemeral', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'src', 'src_reviews'], 'unique_id': 'model.learn_dbt.src_reviews', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'src/src_reviews.sql', 'original_file_path': 'models/src/src_reviews.sql', 'name': 'src_reviews', 'alias': 'src_reviews', 'checksum': {'name': 'sha256', 'checksum': '6fd1f744067361a72da190f58146d07fbabc4d8a922ef4075c13b1786fb9d3e2'}, 'tags': [], 'refs': [], 'sources': [['airbnb', 'reviews']], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'ephemeral'}, 'created_at': 1665730579.8957472, 'config_call_dict': {}}, 'model.learn_dbt.dim_hosts_cleansed': {'raw_sql': "{{\n  config(\n  materialized = 'view'\n  )\n}}\nwith src_host as (\n  select * from {{ ref('src_hosts') }}\n)\nselect \n host_id\n ,nvl(host_name,'Anonymous') as host_name\n ,is_superhost\n ,created_at\n ,updated_at\nfrom src_hosts", 'resource_type': 'model', 'depends_on': {'macros': [], 'nodes': ['model.learn_dbt.src_hosts']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'view', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'dim', 'dim_hosts_cleansed'], 'unique_id': 'model.learn_dbt.dim_hosts_cleansed', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'dim/dim_hosts_cleansed.sql', 'original_file_path': 'models/dim/dim_hosts_cleansed.sql', 'name': 'dim_hosts_cleansed', 'alias': 'dim_hosts_cleansed', 'checksum': {'name': 'sha256', 'checksum': '8aa9b9fb8221f0a9ee1ec9f30233108ee287ce3f82095cfe8de82b166eb66926'}, 'tags': [], 'refs': [['src_hosts']], 'sources': [], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'view'}, 'created_at': 1665730579.904574, 'config_call_dict': {'materialized': 'view'}}, 'model.learn_dbt.dim_listings_w_hosts': {'raw_sql': "with l as (\n  select * from {{ ref('dim_listings_cleansed')}}\n),\nh as (\n  select * from {{ ref('dim_hosts_cleansed')}}\n)\n\nselect \n  l.listing_id,\n  l.listing_name,\n  l.room_type,\n  l.minimum_nights,\n  l.price,\n  l.host_id,\n  h.host_name,\n  h.is_superhost as host_is_superhost,\n  l.created_at,\n  greatest(l.updated_at, h.updated_at) as updated_at\nfrom l\nleft join h\non h.host_id = l.host_id", 'resource_type': 'model', 'depends_on': {'macros': [], 'nodes': ['model.learn_dbt.dim_listings_cleansed', 'model.learn_dbt.dim_hosts_cleansed']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'table', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'dim', 'dim_listings_w_hosts'], 'unique_id': 'model.learn_dbt.dim_listings_w_hosts', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'dim/dim_listings_w_hosts.sql', 'original_file_path': 'models/dim/dim_listings_w_hosts.sql', 'name': 'dim_listings_w_hosts', 'alias': 'dim_listings_w_hosts', 'checksum': {'name': 'sha256', 'checksum': '6c74e56704e8d56461c5b8bbb05f4fc9a2735cb681a4c2a547ab6ef8c4f2c91a'}, 'tags': [], 'refs': [['dim_listings_cleansed'], ['dim_hosts_cleansed']], 'sources': [], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'table'}, 'created_at': 1665730579.909471, 'config_call_dict': {}}, 'model.learn_dbt.src_listings': {'raw_sql': "with raw_listings as (\n    select * from {{source('airbnb', 'listings')}}\n)\nselect \n id as listing_id\n ,name as listing_name\n ,listing_url\n ,room_type\n ,minimum_nights\n ,host_id\n ,price as price_str\n ,created_at\n ,updated_at\nfrom raw_listings", 'resource_type': 'model', 'depends_on': {'macros': [], 'nodes': ['source.learn_dbt.airbnb.listings']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'ephemeral', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'src', 'src_listings'], 'unique_id': 'model.learn_dbt.src_listings', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'src/src_listings.sql', 'original_file_path': 'models/src/src_listings.sql', 'name': 'src_listings', 'alias': 'src_listings', 'checksum': {'name': 'sha256', 'checksum': '18ff00d884884ab5bc36714b47fe383c40e3d1c00ea61ae9d568ac731857e51a'}, 'tags': [], 'refs': [], 'sources': [['airbnb', 'listings']], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'ephemeral'}, 'created_at': 1665730579.91859, 'config_call_dict': {}}, 'model.learn_dbt.src_hosts': {'raw_sql': "with raw_hosts as (\n    select * from {{source('airbnb', 'hosts')}}\n)\nselect \n id as host_id\n ,name as host_name\n ,is_superhost\n ,created_at\n ,updated_at\nfrom raw_hosts", 'resource_type': 'model', 'depends_on': {'macros': [], 'nodes': ['source.learn_dbt.airbnb.hosts']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'ephemeral', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'src', 'src_hosts'], 'unique_id': 'model.learn_dbt.src_hosts', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'src/src_hosts.sql', 'original_file_path': 'models/src/src_hosts.sql', 'name': 'src_hosts', 'alias': 'src_hosts', 'checksum': {'name': 'sha256', 'checksum': 'ee7344eaf975464fdfa43a9bf705a496e35e70dd9c38895cb740b8a955c71413'}, 'tags': [], 'refs': [], 'sources': [['airbnb', 'hosts']], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'ephemeral'}, 'created_at': 1665730579.920427, 'config_call_dict': {}}, 'model.learn_dbt.fact_reviews': {'raw_sql': "{{\n  config(\n    materialized = 'incremental',\n    on_schema_change = 'fail'\n  )\n}}\n\nwith src_reviews as (\n  select * from {{ ref('src_reviews') }}\n)\nselect * from src_reviews\nwhere review_text is not null\n{% if is_incremental() %}\n  and review_date > (select max(review_date) from {{ this }})\n{% endif %}", 'resource_type': 'model', 'depends_on': {'macros': ['macro.dbt.is_incremental'], 'nodes': ['model.learn_dbt.src_reviews']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'incremental', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'fail', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'fact', 'fact_reviews'], 'unique_id': 'model.learn_dbt.fact_reviews', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'fact/fact_reviews.sql', 'original_file_path': 'models/fact/fact_reviews.sql', 'name': 'fact_reviews', 'alias': 'fact_reviews', 'checksum': {'name': 'sha256', 'checksum': '91dade285512addecdbceae43198b6852c22632ca30cb42aea81d61e16c06cfe'}, 'tags': [], 'refs': [['src_reviews']], 'sources': [], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'incremental', 'on_schema_change': 'fail'}, 'created_at': 1665730579.921921, 'config_call_dict': {'materialized': 'incremental', 'on_schema_change': 'fail'}}, 'model.learn_dbt.dim_listings_cleansed': {'raw_sql': "{{\n  config(\n  materialized = 'view'\n  )\n}}\n\nwith scr_listings as (\n  select * from {{ ref('src_listings') }}\n)\nselect \n  listing_id\n  ,listing_name\n  ,room_type\n  ,case when minimum_nights = 0 then 1\n        else minimum_nights\n   end as minimum_nights\n  ,host_id\n  ,replace(price_str, '$') :: number(10,2) as price\n  ,created_at\n  ,updated_at\nfrom src_listings", 'resource_type': 'model', 'depends_on': {'macros': [], 'nodes': ['model.learn_dbt.src_listings']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'view', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': None, 'on_schema_change': 'ignore', 'grants': {}, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'dim', 'dim_listings_cleansed'], 'unique_id': 'model.learn_dbt.dim_listings_cleansed', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'dim/dim_listings_cleansed.sql', 'original_file_path': 'models/dim/dim_listings_cleansed.sql', 'name': 'dim_listings_cleansed', 'alias': 'dim_listings_cleansed', 'checksum': {'name': 'sha256', 'checksum': '8c125280354eb1949c34f7064dade82eb9287216bb0593f3c241fc745d0d1a22'}, 'tags': [], 'refs': [['src_listings']], 'sources': [], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'materialized': 'view'}, 'created_at': 1665730579.927486, 'config_call_dict': {'materialized': 'view'}}, 'snapshot.learn_dbt.scd_raw_listings': {'raw_sql': "\n\n{{\n  config(\n    target_schema='dev',\n    unique_key='id',\n    strategy='timestamp',\n    updated_at='updated_at',\n    invalidate_hard_deletes=True\n  )\n}}\n\nselect * from {{source('airbnb', 'listings')}}\n\n", 'resource_type': 'snapshot', 'depends_on': {'macros': [], 'nodes': ['source.learn_dbt.airbnb.listings']}, 'config': {'enabled': True, 'alias': None, 'schema': None, 'database': None, 'tags': [], 'meta': {}, 'materialized': 'snapshot', 'persist_docs': {}, 'quoting': {}, 'column_types': {}, 'full_refresh': None, 'unique_key': 'id', 'on_schema_change': 'ignore', 'grants': {}, 'strategy': 'timestamp', 'target_schema': 'dev', 'target_database': None, 'updated_at': 'updated_at', 'check_cols': None, 'invalidate_hard_deletes': True, 'post-hook': [], 'pre-hook': []}, 'database': 'airbnb', 'schema': 'dev', 'fqn': ['learn_dbt', 'scd_raw_listings', 'scd_raw_listings'], 'unique_id': 'snapshot.learn_dbt.scd_raw_listings', 'package_name': 'learn_dbt', 'root_path': '/Users/nigelbrown/learn-dbt', 'path': 'scd_raw_listings.sql', 'original_file_path': 'snapshots/scd_raw_listings.sql', 'name': 'scd_raw_listings', 'alias': 'scd_raw_listings', 'checksum': {'name': 'sha256', 'checksum': 'aed035889d63b1c9ad34b2648de32fd6a0bd37b16a7e29254fee461f89d851da'}, 'tags': [], 'refs': [], 'sources': [['airbnb', 'listings']], 'metrics': [], 'description': '', 'columns': {}, 'meta': {}, 'docs': {'show': True}, 'patch_path': None, 'compiled_path': None, 'build_path': None, 'deferred': False, 'unrendered_config': {'target_schema': 'dev', 'unique_key': 'id', 'strategy': 'timestamp', 'updated_at': 'updated_at', 'invalidate_hard_deletes': True}, 'created_at': 1665730579.934686, 'config_call_dict': {'target_schema': 'dev', 'unique_key': 'id', 'strategy': 'timestamp', 'updated_at': 'updated_at', 'invalidate_hard_deletes': True}}}
+[0m07:34:13.318567 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'c5159938-40d2-4bc6-aea9-8d0221ab8942', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114baf4f0>]}
+[0m07:34:13.340907 [debug] [MainThread]: Parsing macros/catalog.sql
+[0m07:34:13.342496 [debug] [MainThread]: Parsing macros/adapters.sql
+[0m07:34:13.365793 [debug] [MainThread]: Parsing macros/apply_grants.sql
+[0m07:34:13.366344 [debug] [MainThread]: Parsing macros/materializations/test.sql
+[0m07:34:13.366790 [debug] [MainThread]: Parsing macros/materializations/merge.sql
+[0m07:34:13.368574 [debug] [MainThread]: Parsing macros/materializations/seed.sql
+[0m07:34:13.370975 [debug] [MainThread]: Parsing macros/materializations/view.sql
+[0m07:34:13.371590 [debug] [MainThread]: Parsing macros/materializations/table.sql
+[0m07:34:13.374255 [debug] [MainThread]: Parsing macros/materializations/incremental.sql
+[0m07:34:13.379069 [debug] [MainThread]: Parsing macros/materializations/snapshot.sql
+[0m07:34:13.379519 [debug] [MainThread]: Parsing macros/utils/timestamps.sql
+[0m07:34:13.380379 [debug] [MainThread]: Parsing macros/utils/escape_single_quotes.sql
+[0m07:34:13.380651 [debug] [MainThread]: Parsing macros/utils/right.sql
+[0m07:34:13.380959 [debug] [MainThread]: Parsing macros/utils/safe_cast.sql
+[0m07:34:13.381206 [debug] [MainThread]: Parsing macros/utils/bool_or.sql
+[0m07:34:13.381423 [debug] [MainThread]: Parsing macros/utils/array_construct.sql
+[0m07:34:13.381681 [debug] [MainThread]: Parsing macros/materializations/hooks.sql
+[0m07:34:13.383390 [debug] [MainThread]: Parsing macros/materializations/configs.sql
+[0m07:34:13.384485 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot_merge.sql
+[0m07:34:13.385244 [debug] [MainThread]: Parsing macros/materializations/snapshots/strategies.sql
+[0m07:34:13.392612 [debug] [MainThread]: Parsing macros/materializations/snapshots/helpers.sql
+[0m07:34:13.399101 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot.sql
+[0m07:34:13.404932 [debug] [MainThread]: Parsing macros/materializations/tests/test.sql
+[0m07:34:13.407018 [debug] [MainThread]: Parsing macros/materializations/tests/helpers.sql
+[0m07:34:13.407842 [debug] [MainThread]: Parsing macros/materializations/tests/where_subquery.sql
+[0m07:34:13.408713 [debug] [MainThread]: Parsing macros/materializations/models/incremental/column_helpers.sql
+[0m07:34:13.412389 [debug] [MainThread]: Parsing macros/materializations/models/incremental/merge.sql
+[0m07:34:13.420098 [debug] [MainThread]: Parsing macros/materializations/models/incremental/is_incremental.sql
+[0m07:34:13.420823 [debug] [MainThread]: Parsing macros/materializations/models/incremental/strategies.sql
+[0m07:34:13.423868 [debug] [MainThread]: Parsing macros/materializations/models/incremental/incremental.sql
+[0m07:34:13.428664 [debug] [MainThread]: Parsing macros/materializations/models/incremental/on_schema_change.sql
+[0m07:34:13.436802 [debug] [MainThread]: Parsing macros/materializations/models/table/table.sql
+[0m07:34:13.439332 [debug] [MainThread]: Parsing macros/materializations/models/table/create_table_as.sql
+[0m07:34:13.440924 [debug] [MainThread]: Parsing macros/materializations/models/view/view.sql
+[0m07:34:13.443447 [debug] [MainThread]: Parsing macros/materializations/models/view/helpers.sql
+[0m07:34:13.444034 [debug] [MainThread]: Parsing macros/materializations/models/view/create_or_replace_view.sql
+[0m07:34:13.445566 [debug] [MainThread]: Parsing macros/materializations/models/view/create_view_as.sql
+[0m07:34:13.446594 [debug] [MainThread]: Parsing macros/materializations/seeds/seed.sql
+[0m07:34:13.449817 [debug] [MainThread]: Parsing macros/materializations/seeds/helpers.sql
+[0m07:34:13.458678 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_alias.sql
+[0m07:34:13.459396 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_schema.sql
+[0m07:34:13.460516 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_database.sql
+[0m07:34:13.461234 [debug] [MainThread]: Parsing macros/generic_test_sql/relationships.sql
+[0m07:34:13.461652 [debug] [MainThread]: Parsing macros/generic_test_sql/not_null.sql
+[0m07:34:13.462027 [debug] [MainThread]: Parsing macros/generic_test_sql/unique.sql
+[0m07:34:13.462371 [debug] [MainThread]: Parsing macros/generic_test_sql/accepted_values.sql
+[0m07:34:13.462992 [debug] [MainThread]: Parsing macros/etc/statement.sql
+[0m07:34:13.465414 [debug] [MainThread]: Parsing macros/etc/datetime.sql
+[0m07:34:13.469287 [debug] [MainThread]: Parsing macros/utils/except.sql
+[0m07:34:13.469671 [debug] [MainThread]: Parsing macros/utils/replace.sql
+[0m07:34:13.470233 [debug] [MainThread]: Parsing macros/utils/concat.sql
+[0m07:34:13.470685 [debug] [MainThread]: Parsing macros/utils/length.sql
+[0m07:34:13.471120 [debug] [MainThread]: Parsing macros/utils/dateadd.sql
+[0m07:34:13.471695 [debug] [MainThread]: Parsing macros/utils/intersect.sql
+[0m07:34:13.472097 [debug] [MainThread]: Parsing macros/utils/escape_single_quotes.sql
+[0m07:34:13.472601 [debug] [MainThread]: Parsing macros/utils/right.sql
+[0m07:34:13.473160 [debug] [MainThread]: Parsing macros/utils/listagg.sql
+[0m07:34:13.474245 [debug] [MainThread]: Parsing macros/utils/datediff.sql
+[0m07:34:13.474810 [debug] [MainThread]: Parsing macros/utils/safe_cast.sql
+[0m07:34:13.475311 [debug] [MainThread]: Parsing macros/utils/hash.sql
+[0m07:34:13.475798 [debug] [MainThread]: Parsing macros/utils/cast_bool_to_text.sql
+[0m07:34:13.476275 [debug] [MainThread]: Parsing macros/utils/any_value.sql
+[0m07:34:13.476700 [debug] [MainThread]: Parsing macros/utils/position.sql
+[0m07:34:13.477196 [debug] [MainThread]: Parsing macros/utils/literal.sql
+[0m07:34:13.477628 [debug] [MainThread]: Parsing macros/utils/data_types.sql
+[0m07:34:13.480800 [debug] [MainThread]: Parsing macros/utils/array_concat.sql
+[0m07:34:13.481287 [debug] [MainThread]: Parsing macros/utils/bool_or.sql
+[0m07:34:13.481712 [debug] [MainThread]: Parsing macros/utils/last_day.sql
+[0m07:34:13.482531 [debug] [MainThread]: Parsing macros/utils/split_part.sql
+[0m07:34:13.483551 [debug] [MainThread]: Parsing macros/utils/date_trunc.sql
+[0m07:34:13.484036 [debug] [MainThread]: Parsing macros/utils/array_construct.sql
+[0m07:34:13.484720 [debug] [MainThread]: Parsing macros/utils/array_append.sql
+[0m07:34:13.485207 [debug] [MainThread]: Parsing macros/adapters/schema.sql
+[0m07:34:13.486186 [debug] [MainThread]: Parsing macros/adapters/timestamps.sql
+[0m07:34:13.487752 [debug] [MainThread]: Parsing macros/adapters/indexes.sql
+[0m07:34:13.489063 [debug] [MainThread]: Parsing macros/adapters/relation.sql
+[0m07:34:13.495966 [debug] [MainThread]: Parsing macros/adapters/freshness.sql
+[0m07:34:13.496879 [debug] [MainThread]: Parsing macros/adapters/apply_grants.sql
+[0m07:34:13.503081 [debug] [MainThread]: Parsing macros/adapters/persist_docs.sql
+[0m07:34:13.505111 [debug] [MainThread]: Parsing macros/adapters/metadata.sql
+[0m07:34:13.508396 [debug] [MainThread]: Parsing macros/adapters/columns.sql
+[0m07:34:13.512888 [debug] [MainThread]: Parsing macros/python_model/python.sql
+[0m07:34:13.515708 [debug] [MainThread]: Parsing tests/generic/builtin.sql
+[0m07:34:13.643088 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_listings_w_hosts.sql
+[0m07:34:13.649159 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_listings_cleansed.sql
+[0m07:34:13.650770 [debug] [MainThread]: 1699: static parser successfully parsed dim/dim_hosts_cleansed.sql
+[0m07:34:13.652294 [debug] [MainThread]: 1603: static parser failed on fact/fact_reviews.sql
+[0m07:34:13.656598 [debug] [MainThread]: 1602: parser fallback to jinja rendering on fact/fact_reviews.sql
+[0m07:34:13.657746 [debug] [MainThread]: 1699: static parser successfully parsed mart/mart_fullmoon_reviews.sql
+[0m07:34:13.659255 [debug] [MainThread]: 1699: static parser successfully parsed src/src_reviews.sql
+[0m07:34:13.660691 [debug] [MainThread]: 1699: static parser successfully parsed src/src_listings.sql
+[0m07:34:13.662208 [debug] [MainThread]: 1699: static parser successfully parsed src/src_hosts.sql
+[0m07:34:13.723017 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c5159938-40d2-4bc6-aea9-8d0221ab8942', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114dff0d0>]}
+[0m07:34:13.726982 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c5159938-40d2-4bc6-aea9-8d0221ab8942', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114bc1490>]}
+[0m07:34:13.727154 [info ] [MainThread]: Found 8 models, 2 tests, 1 snapshot, 0 analyses, 303 macros, 0 operations, 1 seed file, 3 sources, 0 exposures, 0 metrics
+[0m07:34:13.727320 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c5159938-40d2-4bc6-aea9-8d0221ab8942', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114da8f70>]}
+[0m07:34:13.728161 [info ] [MainThread]: 
+[0m07:34:13.728540 [debug] [MainThread]: Acquiring new snowflake connection "master"
+[0m07:34:13.729146 [debug] [ThreadPool]: Acquiring new snowflake connection "list_airbnb_dev"
+[0m07:34:13.736215 [debug] [ThreadPool]: Using snowflake connection "list_airbnb_dev"
+[0m07:34:13.736365 [debug] [ThreadPool]: On list_airbnb_dev: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_airbnb_dev"} */
+show terse objects in airbnb.dev
+[0m07:34:13.736455 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m07:34:15.710171 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.97 seconds
+[0m07:34:15.713397 [debug] [ThreadPool]: On list_airbnb_dev: Close
+[0m07:34:15.901147 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c5159938-40d2-4bc6-aea9-8d0221ab8942', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114c28a00>]}
+[0m07:34:15.902586 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m07:34:15.903180 [info ] [MainThread]: 
+[0m07:34:15.924320 [debug] [Thread-1  ]: Began running node model.learn_dbt.src_hosts
+[0m07:34:15.924506 [debug] [Thread-2  ]: Began running node model.learn_dbt.src_listings
+[0m07:34:15.924688 [debug] [Thread-3  ]: Began running node model.learn_dbt.src_reviews
+[0m07:34:15.924900 [debug] [Thread-4  ]: Began running node seed.learn_dbt.seed_full_moon_dates
+[0m07:34:15.925523 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.learn_dbt.src_hosts"
+[0m07:34:15.926004 [debug] [Thread-2  ]: Acquiring new snowflake connection "model.learn_dbt.src_listings"
+[0m07:34:15.926453 [debug] [Thread-3  ]: Acquiring new snowflake connection "model.learn_dbt.src_reviews"
+[0m07:34:15.926859 [debug] [Thread-4  ]: Acquiring new snowflake connection "seed.learn_dbt.seed_full_moon_dates"
+[0m07:34:15.927034 [debug] [Thread-1  ]: Began compiling node model.learn_dbt.src_hosts
+[0m07:34:15.927185 [debug] [Thread-2  ]: Began compiling node model.learn_dbt.src_listings
+[0m07:34:15.927330 [debug] [Thread-3  ]: Began compiling node model.learn_dbt.src_reviews
+[0m07:34:15.927470 [debug] [Thread-4  ]: Began compiling node seed.learn_dbt.seed_full_moon_dates
+[0m07:34:15.927644 [debug] [Thread-1  ]: Compiling model.learn_dbt.src_hosts
+[0m07:34:15.927785 [debug] [Thread-2  ]: Compiling model.learn_dbt.src_listings
+[0m07:34:15.927928 [debug] [Thread-3  ]: Compiling model.learn_dbt.src_reviews
+[0m07:34:15.928058 [debug] [Thread-4  ]: Compiling seed.learn_dbt.seed_full_moon_dates
+[0m07:34:15.930931 [debug] [Thread-1  ]: Writing injected SQL for node "model.learn_dbt.src_hosts"
+[0m07:34:15.933007 [debug] [Thread-2  ]: Writing injected SQL for node "model.learn_dbt.src_listings"
+[0m07:34:15.934849 [debug] [Thread-3  ]: Writing injected SQL for node "model.learn_dbt.src_reviews"
+[0m07:34:15.935973 [debug] [Thread-4  ]: Writing injected SQL for node "seed.learn_dbt.seed_full_moon_dates"
+[0m07:34:15.936320 [debug] [Thread-4  ]: finished collecting timing info
+[0m07:34:15.936584 [debug] [Thread-4  ]: Began executing node seed.learn_dbt.seed_full_moon_dates
+[0m07:34:15.936724 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:34:15.936858 [debug] [Thread-1  ]: finished collecting timing info
+[0m07:34:15.936991 [debug] [Thread-4  ]: finished collecting timing info
+[0m07:34:15.937459 [debug] [Thread-2  ]: Finished running node model.learn_dbt.src_listings
+[0m07:34:15.937571 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:34:15.937949 [debug] [Thread-1  ]: Finished running node model.learn_dbt.src_hosts
+[0m07:34:15.938317 [debug] [Thread-4  ]: Finished running node seed.learn_dbt.seed_full_moon_dates
+[0m07:34:15.938469 [debug] [Thread-2  ]: Began running node snapshot.learn_dbt.scd_raw_listings
+[0m07:34:15.938932 [debug] [Thread-3  ]: Finished running node model.learn_dbt.src_reviews
+[0m07:34:15.939086 [debug] [Thread-1  ]: Began running node test.learn_dbt.dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4.1e56c20a65
+[0m07:34:15.939271 [debug] [Thread-4  ]: Began running node test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9
+[0m07:34:15.939695 [debug] [Thread-2  ]: Acquiring new snowflake connection "snapshot.learn_dbt.scd_raw_listings"
+[0m07:34:15.939848 [debug] [Thread-3  ]: Began running node model.learn_dbt.dim_listings_cleansed
+[0m07:34:15.940228 [debug] [Thread-1  ]: Acquiring new snowflake connection "test.learn_dbt.dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4.1e56c20a65"
+[0m07:34:15.940590 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9"
+[0m07:34:15.940721 [debug] [Thread-2  ]: Began compiling node snapshot.learn_dbt.scd_raw_listings
+[0m07:34:15.941039 [debug] [Thread-3  ]: Acquiring new snowflake connection "model.learn_dbt.dim_listings_cleansed"
+[0m07:34:15.941170 [debug] [Thread-1  ]: Began compiling node test.learn_dbt.dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4.1e56c20a65
+[0m07:34:15.941296 [debug] [Thread-4  ]: Began compiling node test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9
+[0m07:34:15.941421 [debug] [Thread-2  ]: Compiling snapshot.learn_dbt.scd_raw_listings
+[0m07:34:15.941540 [debug] [Thread-3  ]: Began compiling node model.learn_dbt.dim_listings_cleansed
+[0m07:34:15.941658 [debug] [Thread-1  ]: Compiling test.learn_dbt.dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4.1e56c20a65
+[0m07:34:15.941777 [debug] [Thread-4  ]: Compiling test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9
+[0m07:34:15.944655 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:34:15.944804 [debug] [Thread-3  ]: Compiling model.learn_dbt.dim_listings_cleansed
+[0m07:34:15.950559 [debug] [Thread-2  ]: Began executing node snapshot.learn_dbt.scd_raw_listings
+[0m07:34:15.958512 [debug] [Thread-3  ]: Writing injected SQL for node "model.learn_dbt.dim_listings_cleansed"
+[0m07:34:15.958780 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:34:15.959178 [debug] [Thread-1  ]: finished collecting timing info
+[0m07:34:15.959414 [debug] [Thread-4  ]: finished collecting timing info
+[0m07:34:15.959863 [debug] [Thread-2  ]: Finished running node snapshot.learn_dbt.scd_raw_listings
+[0m07:34:15.960187 [debug] [Thread-1  ]: Compilation Error in test dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4 (models/sources.yml)
+  'dbt_expectations' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps".
+[0m07:34:15.960493 [debug] [Thread-4  ]: Compilation Error in test dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_ (models/sources.yml)
+  'dbt_expectations' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps".
+[0m07:34:15.960651 [debug] [Thread-2  ]: Began running node model.learn_dbt.dim_hosts_cleansed
+[0m07:34:15.960802 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:34:15.961024 [debug] [Thread-1  ]: Finished running node test.learn_dbt.dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4.1e56c20a65
+[0m07:34:15.961204 [debug] [Thread-4  ]: Finished running node test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9
+[0m07:34:15.961555 [debug] [Thread-2  ]: Acquiring new snowflake connection "model.learn_dbt.dim_hosts_cleansed"
+[0m07:34:15.961691 [debug] [Thread-3  ]: Began executing node model.learn_dbt.dim_listings_cleansed
+[0m07:34:15.961915 [debug] [Thread-1  ]: Began running node model.learn_dbt.fact_reviews
+[0m07:34:15.962195 [debug] [Thread-2  ]: Began compiling node model.learn_dbt.dim_hosts_cleansed
+[0m07:34:15.962314 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:34:15.962653 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:34:15.962779 [debug] [Thread-2  ]: Compiling model.learn_dbt.dim_hosts_cleansed
+[0m07:34:15.963130 [debug] [Thread-3  ]: Finished running node model.learn_dbt.dim_listings_cleansed
+[0m07:34:15.963314 [debug] [Thread-1  ]: Began compiling node model.learn_dbt.fact_reviews
+[0m07:34:15.966826 [debug] [Thread-2  ]: Writing injected SQL for node "model.learn_dbt.dim_hosts_cleansed"
+[0m07:34:15.967033 [debug] [Thread-1  ]: Compiling model.learn_dbt.fact_reviews
+[0m07:34:15.971809 [debug] [Thread-1  ]: Writing injected SQL for node "model.learn_dbt.fact_reviews"
+[0m07:34:15.972065 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:34:15.972190 [debug] [Thread-2  ]: Began executing node model.learn_dbt.dim_hosts_cleansed
+[0m07:34:15.972282 [debug] [Thread-1  ]: finished collecting timing info
+[0m07:34:15.972396 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:34:15.972505 [debug] [Thread-1  ]: Began executing node model.learn_dbt.fact_reviews
+[0m07:34:15.972848 [debug] [Thread-2  ]: Finished running node model.learn_dbt.dim_hosts_cleansed
+[0m07:34:15.972955 [debug] [Thread-1  ]: finished collecting timing info
+[0m07:34:15.973120 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m07:34:15.973237 [debug] [MainThread]: Connection 'model.learn_dbt.fact_reviews' was properly closed.
+[0m07:34:15.973320 [debug] [MainThread]: Connection 'model.learn_dbt.dim_hosts_cleansed' was properly closed.
+[0m07:34:15.973401 [debug] [MainThread]: Connection 'model.learn_dbt.dim_listings_cleansed' was properly closed.
+[0m07:34:15.973480 [debug] [MainThread]: Connection 'test.learn_dbt.dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_.09375076a9' was properly closed.
+[0m07:34:15.973612 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11528bd00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11528b970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115288ca0>]}
+[0m07:34:15.973871 [debug] [Thread-1  ]: Finished running node model.learn_dbt.fact_reviews
+[0m07:34:15.974031 [debug] [MainThread]: Flushing usage events
+[0m07:34:16.587476 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Compilation Error in test dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_ (models/sources.yml)
+    'dbt_expectations' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps".
+
+
+============================== 2022-10-14 07:35:19.694551 | 60986408-b9b8-4797-bc08-42da721fdc5b ==============================
+[0m07:35:19.694557 [info ] [MainThread]: Running with dbt=1.3.0
+[0m07:35:19.694802 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/nigelbrown/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'which': 'deps', 'rpc_method': 'deps', 'indirect_selection': 'eager'}
+[0m07:35:19.694894 [debug] [MainThread]: Tracking: tracking
+[0m07:35:19.709320 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108914490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1089144f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108914580>]}
+[0m07:35:19.710058 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m07:35:19.710345 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1089144f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108914430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108914af0>]}
+[0m07:35:19.710476 [debug] [MainThread]: Flushing usage events
+
+
+============================== 2022-10-14 07:35:32.953532 | de8409b2-34d3-404b-949a-877a2912440c ==============================
+[0m07:35:32.953538 [info ] [MainThread]: Running with dbt=1.3.0
+[0m07:35:32.953941 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/nigelbrown/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'config_dir': False, 'which': 'debug', 'indirect_selection': 'eager'}
+[0m07:35:32.954038 [debug] [MainThread]: Tracking: tracking
+[0m07:35:32.966846 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1084679a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108467a90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108467b50>]}
+[0m07:35:33.188388 [debug] [MainThread]: Executing "git --help"
+[0m07:35:33.208835 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m07:35:33.209304 [debug] [MainThread]: STDERR: "b''"
+[0m07:35:33.213104 [debug] [MainThread]: Acquiring new snowflake connection "debug"
+[0m07:35:33.214340 [debug] [MainThread]: Using snowflake connection "debug"
+[0m07:35:33.214538 [debug] [MainThread]: On debug: select 1 as id
+[0m07:35:33.214662 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m07:35:34.811850 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.6 seconds
+[0m07:35:34.814262 [debug] [MainThread]: On debug: Close
+[0m07:35:35.158999 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1090383a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109038ee0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1090458e0>]}
+[0m07:35:35.159696 [debug] [MainThread]: Flushing usage events
+[0m07:35:35.745597 [debug] [MainThread]: Connection 'debug' was properly closed.
+
+
+============================== 2022-10-14 07:38:38.010335 | e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e ==============================
+[0m07:38:38.010372 [info ] [MainThread]: Running with dbt=1.3.0
+[0m07:38:38.010955 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/nigelbrown/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+[0m07:38:38.011080 [debug] [MainThread]: Tracking: tracking
+[0m07:38:38.011319 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108dc17f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108dc1850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108dc18b0>]}
+[0m07:38:38.045611 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m07:38:38.045815 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m07:38:38.049661 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f840d0>]}
+[0m07:38:38.054068 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f44fa0>]}
+[0m07:38:38.054276 [info ] [MainThread]: Found 8 models, 2 tests, 1 snapshot, 0 analyses, 303 macros, 0 operations, 1 seed file, 3 sources, 0 exposures, 0 metrics
+[0m07:38:38.054458 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108dff5b0>]}
+[0m07:38:38.055287 [info ] [MainThread]: 
+[0m07:38:38.055652 [debug] [MainThread]: Acquiring new snowflake connection "master"
+[0m07:38:38.056251 [debug] [ThreadPool]: Acquiring new snowflake connection "list_airbnb"
+[0m07:38:38.064144 [debug] [ThreadPool]: Using snowflake connection "list_airbnb"
+[0m07:38:38.064338 [debug] [ThreadPool]: On list_airbnb: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_airbnb"} */
+show terse schemas in database airbnb
+    limit 10000
+[0m07:38:38.064432 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m07:38:38.815064 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.75 seconds
+[0m07:38:38.818536 [debug] [ThreadPool]: On list_airbnb: Close
+[0m07:38:38.982430 [debug] [ThreadPool]: Acquiring new snowflake connection "list_airbnb_dev"
+[0m07:38:38.991890 [debug] [ThreadPool]: Using snowflake connection "list_airbnb_dev"
+[0m07:38:38.992161 [debug] [ThreadPool]: On list_airbnb_dev: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "connection_name": "list_airbnb_dev"} */
+show terse objects in airbnb.dev
+[0m07:38:38.992352 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m07:38:39.507177 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 0.51 seconds
+[0m07:38:39.510293 [debug] [ThreadPool]: On list_airbnb_dev: Close
+[0m07:38:39.703727 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f44880>]}
+[0m07:38:39.704934 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m07:38:39.705482 [info ] [MainThread]: 
+[0m07:38:39.712314 [debug] [Thread-1  ]: Began running node model.learn_dbt.src_hosts
+[0m07:38:39.712608 [debug] [Thread-2  ]: Began running node model.learn_dbt.src_listings
+[0m07:38:39.712856 [debug] [Thread-3  ]: Began running node model.learn_dbt.src_reviews
+[0m07:38:39.713528 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.learn_dbt.src_hosts"
+[0m07:38:39.714116 [debug] [Thread-2  ]: Acquiring new snowflake connection "model.learn_dbt.src_listings"
+[0m07:38:39.714709 [debug] [Thread-3  ]: Acquiring new snowflake connection "model.learn_dbt.src_reviews"
+[0m07:38:39.714974 [debug] [Thread-1  ]: Began compiling node model.learn_dbt.src_hosts
+[0m07:38:39.715192 [debug] [Thread-2  ]: Began compiling node model.learn_dbt.src_listings
+[0m07:38:39.715370 [debug] [Thread-3  ]: Began compiling node model.learn_dbt.src_reviews
+[0m07:38:39.715577 [debug] [Thread-1  ]: Compiling model.learn_dbt.src_hosts
+[0m07:38:39.715765 [debug] [Thread-2  ]: Compiling model.learn_dbt.src_listings
+[0m07:38:39.715933 [debug] [Thread-3  ]: Compiling model.learn_dbt.src_reviews
+[0m07:38:39.719604 [debug] [Thread-1  ]: Writing injected SQL for node "model.learn_dbt.src_hosts"
+[0m07:38:39.722120 [debug] [Thread-2  ]: Writing injected SQL for node "model.learn_dbt.src_listings"
+[0m07:38:39.724402 [debug] [Thread-3  ]: Writing injected SQL for node "model.learn_dbt.src_reviews"
+[0m07:38:39.725111 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:38:39.725287 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:38:39.725453 [debug] [Thread-1  ]: finished collecting timing info
+[0m07:38:39.726012 [debug] [Thread-2  ]: Finished running node model.learn_dbt.src_listings
+[0m07:38:39.726494 [debug] [Thread-3  ]: Finished running node model.learn_dbt.src_reviews
+[0m07:38:39.726974 [debug] [Thread-1  ]: Finished running node model.learn_dbt.src_hosts
+[0m07:38:39.727321 [debug] [Thread-3  ]: Began running node model.learn_dbt.dim_listings_cleansed
+[0m07:38:39.727684 [debug] [Thread-2  ]: Began running node model.learn_dbt.fact_reviews
+[0m07:38:39.727860 [debug] [Thread-4  ]: Began running node model.learn_dbt.dim_hosts_cleansed
+[0m07:38:39.728092 [info ] [Thread-3  ]: 1 of 5 START sql view model dev.dim_listings_cleansed .......................... [RUN]
+[0m07:38:39.728310 [info ] [Thread-2  ]: 2 of 5 START sql incremental model dev.fact_reviews ............................ [RUN]
+[0m07:38:39.728540 [info ] [Thread-4  ]: 3 of 5 START sql view model dev.dim_hosts_cleansed ............................. [RUN]
+[0m07:38:39.729104 [debug] [Thread-3  ]: Acquiring new snowflake connection "model.learn_dbt.dim_listings_cleansed"
+[0m07:38:39.729572 [debug] [Thread-2  ]: Acquiring new snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:39.730105 [debug] [Thread-4  ]: Acquiring new snowflake connection "model.learn_dbt.dim_hosts_cleansed"
+[0m07:38:39.730250 [debug] [Thread-3  ]: Began compiling node model.learn_dbt.dim_listings_cleansed
+[0m07:38:39.730398 [debug] [Thread-2  ]: Began compiling node model.learn_dbt.fact_reviews
+[0m07:38:39.730540 [debug] [Thread-4  ]: Began compiling node model.learn_dbt.dim_hosts_cleansed
+[0m07:38:39.730679 [debug] [Thread-3  ]: Compiling model.learn_dbt.dim_listings_cleansed
+[0m07:38:39.730815 [debug] [Thread-2  ]: Compiling model.learn_dbt.fact_reviews
+[0m07:38:39.730948 [debug] [Thread-4  ]: Compiling model.learn_dbt.dim_hosts_cleansed
+[0m07:38:39.741556 [debug] [Thread-3  ]: Writing injected SQL for node "model.learn_dbt.dim_listings_cleansed"
+[0m07:38:39.749472 [debug] [Thread-2  ]: Writing injected SQL for node "model.learn_dbt.fact_reviews"
+[0m07:38:39.753652 [debug] [Thread-4  ]: Writing injected SQL for node "model.learn_dbt.dim_hosts_cleansed"
+[0m07:38:39.754008 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:38:39.754151 [debug] [Thread-3  ]: Began executing node model.learn_dbt.dim_listings_cleansed
+[0m07:38:39.754264 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:38:39.754388 [debug] [Thread-4  ]: finished collecting timing info
+[0m07:38:39.771050 [debug] [Thread-3  ]: Writing runtime sql for node "model.learn_dbt.dim_listings_cleansed"
+[0m07:38:39.771293 [debug] [Thread-2  ]: Began executing node model.learn_dbt.fact_reviews
+[0m07:38:39.771427 [debug] [Thread-4  ]: Began executing node model.learn_dbt.dim_hosts_cleansed
+[0m07:38:39.789518 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:39.791518 [debug] [Thread-4  ]: Writing runtime sql for node "model.learn_dbt.dim_hosts_cleansed"
+[0m07:38:39.791690 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+create or replace  view airbnb.dev.fact_reviews__dbt_tmp
+  
+   as (
+    
+
+with  __dbt__cte__src_reviews as (
+with raw_reviews as (
+    select * from airbnb.raw.raw_reviews
+)
+select 
+ listing_id
+ ,date as review_date
+ ,reviewer_name
+ ,comments as review_text
+ ,sentiment as review_sentiment
+from raw_reviews
+),src_reviews as (
+  select * from __dbt__cte__src_reviews
+)
+select * from src_reviews
+where review_text is not null
+
+  and review_date > (select max(review_date) from airbnb.dev.fact_reviews)
+
+  );
+[0m07:38:39.792271 [debug] [Thread-3  ]: Using snowflake connection "model.learn_dbt.dim_listings_cleansed"
+[0m07:38:39.792474 [debug] [Thread-2  ]: Opening a new connection, currently in state init
+[0m07:38:39.792647 [debug] [Thread-3  ]: On model.learn_dbt.dim_listings_cleansed: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_listings_cleansed"} */
+create or replace  view airbnb.dev.dim_listings_cleansed
+  
+   as (
+    
+
+with  __dbt__cte__src_listings as (
+with raw_listings as (
+    select * from airbnb.raw.raw_listings
+)
+select 
+ id as listing_id
+ ,name as listing_name
+ ,listing_url
+ ,room_type
+ ,minimum_nights
+ ,host_id
+ ,price as price_str
+ ,created_at
+ ,updated_at
+from raw_listings
+),scr_listings as (
+  select * from __dbt__cte__src_listings
+)
+select 
+  listing_id
+  ,listing_name
+  ,room_type
+  ,case when minimum_nights = 0 then 1
+        else minimum_nights
+   end as minimum_nights
+  ,host_id
+  ,replace(price_str, '$') :: number(10,2) as price
+  ,created_at
+  ,updated_at
+from src_listings
+  );
+[0m07:38:39.793556 [debug] [Thread-4  ]: Using snowflake connection "model.learn_dbt.dim_hosts_cleansed"
+[0m07:38:39.793988 [debug] [Thread-3  ]: Opening a new connection, currently in state init
+[0m07:38:39.794088 [debug] [Thread-4  ]: On model.learn_dbt.dim_hosts_cleansed: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_hosts_cleansed"} */
+create or replace  view airbnb.dev.dim_hosts_cleansed
+  
+   as (
+    
+with  __dbt__cte__src_hosts as (
+with raw_hosts as (
+    select * from airbnb.raw.raw_hosts
+)
+select 
+ id as host_id
+ ,name as host_name
+ ,is_superhost
+ ,created_at
+ ,updated_at
+from raw_hosts
+),src_host as (
+  select * from __dbt__cte__src_hosts
+)
+select 
+ host_id
+ ,nvl(host_name,'Anonymous') as host_name
+ ,is_superhost
+ ,created_at
+ ,updated_at
+from src_hosts
+  );
+[0m07:38:39.794481 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+[0m07:38:40.563835 [debug] [Thread-3  ]: Snowflake adapter: Snowflake query id: 01a79e2a-3201-ec73-0000-00015aae707d
+[0m07:38:40.564384 [debug] [Thread-4  ]: Snowflake adapter: Snowflake query id: 01a79e2a-3201-eb1e-0000-00015aae8065
+[0m07:38:40.564734 [debug] [Thread-3  ]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'AIRBNB.DEV.SRC_LISTINGS' does not exist or not authorized.
+[0m07:38:40.564957 [debug] [Thread-4  ]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'AIRBNB.DEV.SRC_HOSTS' does not exist or not authorized.
+[0m07:38:40.565436 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:38:40.565828 [debug] [Thread-4  ]: finished collecting timing info
+[0m07:38:40.566101 [debug] [Thread-3  ]: On model.learn_dbt.dim_listings_cleansed: Close
+[0m07:38:40.566323 [debug] [Thread-4  ]: On model.learn_dbt.dim_hosts_cleansed: Close
+[0m07:38:40.625021 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.83 seconds
+[0m07:38:40.639531 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:40.639857 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+describe table airbnb.dev.fact_reviews__dbt_tmp
+[0m07:38:40.748781 [debug] [Thread-2  ]: SQL status: SUCCESS 5 in 0.11 seconds
+[0m07:38:40.751956 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:40.752581 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+describe table airbnb.dev.fact_reviews
+[0m07:38:40.753807 [debug] [Thread-4  ]: Database Error in model dim_hosts_cleansed (models/dim/dim_hosts_cleansed.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'AIRBNB.DEV.SRC_HOSTS' does not exist or not authorized.
+  compiled Code at target/run/learn_dbt/models/dim/dim_hosts_cleansed.sql
+[0m07:38:40.754048 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109273b20>]}
+[0m07:38:40.754308 [error] [Thread-4  ]: 3 of 5 ERROR creating sql view model dev.dim_hosts_cleansed .................... [[31mERROR[0m in 1.02s]
+[0m07:38:40.754685 [debug] [Thread-4  ]: Finished running node model.learn_dbt.dim_hosts_cleansed
+[0m07:38:40.769449 [debug] [Thread-3  ]: Database Error in model dim_listings_cleansed (models/dim/dim_listings_cleansed.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'AIRBNB.DEV.SRC_LISTINGS' does not exist or not authorized.
+  compiled Code at target/run/learn_dbt/models/dim/dim_listings_cleansed.sql
+[0m07:38:40.770267 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f44dc0>]}
+[0m07:38:40.770905 [error] [Thread-3  ]: 1 of 5 ERROR creating sql view model dev.dim_listings_cleansed ................. [[31mERROR[0m in 1.04s]
+[0m07:38:40.771461 [debug] [Thread-3  ]: Finished running node model.learn_dbt.dim_listings_cleansed
+[0m07:38:40.771780 [debug] [Thread-1  ]: Began running node model.learn_dbt.dim_listings_w_hosts
+[0m07:38:40.771952 [info ] [Thread-1  ]: 4 of 5 SKIP relation dev.dim_listings_w_hosts .................................. [[33mSKIP[0m]
+[0m07:38:40.772226 [debug] [Thread-1  ]: Finished running node model.learn_dbt.dim_listings_w_hosts
+[0m07:38:40.854262 [debug] [Thread-2  ]: SQL status: SUCCESS 5 in 0.1 seconds
+[0m07:38:40.862406 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:40.862550 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+describe table airbnb.dev.fact_reviews__dbt_tmp
+[0m07:38:40.954932 [debug] [Thread-2  ]: SQL status: SUCCESS 5 in 0.09 seconds
+[0m07:38:40.959662 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:40.959836 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+describe table "AIRBNB"."DEV"."FACT_REVIEWS"
+[0m07:38:41.049670 [debug] [Thread-2  ]: SQL status: SUCCESS 5 in 0.09 seconds
+[0m07:38:41.057315 [debug] [Thread-2  ]: 
+    In "AIRBNB"."DEV"."FACT_REVIEWS":
+        Schema changed: False
+        Source columns not in target: []
+        Target columns not in source: []
+        New column types: []
+  
+[0m07:38:41.066213 [debug] [Thread-2  ]: Writing runtime sql for node "model.learn_dbt.fact_reviews"
+[0m07:38:41.067158 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:41.067330 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+BEGIN
+[0m07:38:41.202377 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.13 seconds
+[0m07:38:41.203122 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:41.203392 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+insert into airbnb.dev.fact_reviews ("LISTING_ID", "REVIEW_DATE", "REVIEWER_NAME", "REVIEW_TEXT", "REVIEW_SENTIMENT")
+        (
+            select "LISTING_ID", "REVIEW_DATE", "REVIEWER_NAME", "REVIEW_TEXT", "REVIEW_SENTIMENT"
+            from airbnb.dev.fact_reviews__dbt_tmp
+        );
+[0m07:38:43.592376 [debug] [Thread-2  ]: SQL status: SUCCESS 0 in 2.39 seconds
+[0m07:38:43.594128 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:43.594646 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+COMMIT
+[0m07:38:43.781564 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.19 seconds
+[0m07:38:43.793737 [debug] [Thread-2  ]: Using snowflake connection "model.learn_dbt.fact_reviews"
+[0m07:38:43.794051 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.fact_reviews"} */
+drop view if exists airbnb.dev.fact_reviews__dbt_tmp cascade
+[0m07:38:43.901008 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 0.11 seconds
+[0m07:38:43.926053 [debug] [Thread-2  ]: finished collecting timing info
+[0m07:38:43.926377 [debug] [Thread-2  ]: On model.learn_dbt.fact_reviews: Close
+[0m07:38:44.085257 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109273cd0>]}
+[0m07:38:44.086195 [info ] [Thread-2  ]: 2 of 5 OK created sql incremental model dev.fact_reviews ....................... [[32mSUCCESS 0[0m in 4.36s]
+[0m07:38:44.087009 [debug] [Thread-2  ]: Finished running node model.learn_dbt.fact_reviews
+[0m07:38:44.087682 [debug] [Thread-3  ]: Began running node model.learn_dbt.mart_fullmoon_reviews
+[0m07:38:44.088142 [info ] [Thread-3  ]: 5 of 5 START sql table model dev.mart_fullmoon_reviews ......................... [RUN]
+[0m07:38:44.088774 [debug] [Thread-3  ]: Acquiring new snowflake connection "model.learn_dbt.mart_fullmoon_reviews"
+[0m07:38:44.088946 [debug] [Thread-3  ]: Began compiling node model.learn_dbt.mart_fullmoon_reviews
+[0m07:38:44.089139 [debug] [Thread-3  ]: Compiling model.learn_dbt.mart_fullmoon_reviews
+[0m07:38:44.093169 [debug] [Thread-3  ]: Writing injected SQL for node "model.learn_dbt.mart_fullmoon_reviews"
+[0m07:38:44.094368 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:38:44.094604 [debug] [Thread-3  ]: Began executing node model.learn_dbt.mart_fullmoon_reviews
+[0m07:38:44.117247 [debug] [Thread-3  ]: Writing runtime sql for node "model.learn_dbt.mart_fullmoon_reviews"
+[0m07:38:44.118353 [debug] [Thread-3  ]: Using snowflake connection "model.learn_dbt.mart_fullmoon_reviews"
+[0m07:38:44.118528 [debug] [Thread-3  ]: On model.learn_dbt.mart_fullmoon_reviews: /* {"app": "dbt", "dbt_version": "1.3.0", "profile_name": "learn-dbt", "target_name": "dev", "node_id": "model.learn_dbt.mart_fullmoon_reviews"} */
+create or replace transient table airbnb.dev.mart_fullmoon_reviews  as
+        (
+
+with fact_reviews as (
+  select * from airbnb.dev.fact_reviews
+),
+full_moon_dates as (
+  select * from airbnb.dev.seed_full_moon_dates
+)
+
+select r.*
+       ,case when fm.full_moon_date is null then 'not full moon'
+        else 'full moon'
+        end as is_full_moon
+from fact_reviews as r
+left join full_moon_dates fm
+on to_date(r.review_date) = dateadd(day, 1, fm.full_moon_date)
+        );
+[0m07:38:44.118659 [debug] [Thread-3  ]: Opening a new connection, currently in state closed
+[0m07:38:48.145215 [debug] [Thread-3  ]: SQL status: SUCCESS 1 in 4.03 seconds
+[0m07:38:48.155496 [debug] [Thread-3  ]: finished collecting timing info
+[0m07:38:48.155901 [debug] [Thread-3  ]: On model.learn_dbt.mart_fullmoon_reviews: Close
+[0m07:38:48.321939 [debug] [Thread-3  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e7b18a18-4faa-42b8-92e7-0ac39c4c0b3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109665970>]}
+[0m07:38:48.322927 [info ] [Thread-3  ]: 5 of 5 OK created sql table model dev.mart_fullmoon_reviews .................... [[32mSUCCESS 1[0m in 4.23s]
+[0m07:38:48.323714 [debug] [Thread-3  ]: Finished running node model.learn_dbt.mart_fullmoon_reviews
+[0m07:38:48.325383 [debug] [MainThread]: Acquiring new snowflake connection "master"
+[0m07:38:48.326110 [info ] [MainThread]: 
+[0m07:38:48.326529 [info ] [MainThread]: Finished running 2 view models, 2 table models, 1 incremental model in 0 hours 0 minutes and 10.27 seconds (10.27s).
+[0m07:38:48.326911 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m07:38:48.327103 [debug] [MainThread]: Connection 'model.learn_dbt.src_hosts' was properly closed.
+[0m07:38:48.327290 [debug] [MainThread]: Connection 'model.learn_dbt.fact_reviews' was properly closed.
+[0m07:38:48.327471 [debug] [MainThread]: Connection 'model.learn_dbt.mart_fullmoon_reviews' was properly closed.
+[0m07:38:48.327657 [debug] [MainThread]: Connection 'model.learn_dbt.dim_hosts_cleansed' was properly closed.
+[0m07:38:48.337867 [info ] [MainThread]: 
+[0m07:38:48.338314 [info ] [MainThread]: [31mCompleted with 2 errors and 0 warnings:[0m
+[0m07:38:48.338676 [info ] [MainThread]: 
+[0m07:38:48.338995 [error] [MainThread]: [33mDatabase Error in model dim_hosts_cleansed (models/dim/dim_hosts_cleansed.sql)[0m
+[0m07:38:48.339300 [error] [MainThread]:   002003 (42S02): SQL compilation error:
+[0m07:38:48.339569 [error] [MainThread]:   Object 'AIRBNB.DEV.SRC_HOSTS' does not exist or not authorized.
+[0m07:38:48.339817 [error] [MainThread]:   compiled Code at target/run/learn_dbt/models/dim/dim_hosts_cleansed.sql
+[0m07:38:48.340070 [info ] [MainThread]: 
+[0m07:38:48.340320 [error] [MainThread]: [33mDatabase Error in model dim_listings_cleansed (models/dim/dim_listings_cleansed.sql)[0m
+[0m07:38:48.340574 [error] [MainThread]:   002003 (42S02): SQL compilation error:
+[0m07:38:48.340821 [error] [MainThread]:   Object 'AIRBNB.DEV.SRC_LISTINGS' does not exist or not authorized.
+[0m07:38:48.341070 [error] [MainThread]:   compiled Code at target/run/learn_dbt/models/dim/dim_listings_cleansed.sql
+[0m07:38:48.356904 [info ] [MainThread]: 
+[0m07:38:48.357452 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=2 SKIP=1 TOTAL=5
+[0m07:38:48.357918 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109267df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1096619a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109661bb0>]}
+[0m07:38:48.358274 [debug] [MainThread]: Flushing usage events

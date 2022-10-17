@@ -1,7 +1,9 @@
 
+  
+    
 
-      create or replace transient table airbnb.dev.dim_listings_w_hosts  as
-      (with l as (
+        create or replace transient table airbnb.dev.dim_listings_w_hosts  as
+        (with l as (
   select * from airbnb.dev.dim_listings_cleansed
 ),
 h as (
@@ -22,5 +24,6 @@ select
 from l
 left join h
 on h.host_id = l.host_id
-      );
-    
+        );
+      
+  

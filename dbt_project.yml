@@ -18,6 +18,10 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+asset-paths: ["assets"]
+
+vars:
+  'dbt_date:time_zome': 'UTC'
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
@@ -35,6 +39,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   learn_dbt:
     +materialized: view
+    +post-hook:
+      - "grant select on {{ this }} to role reporter"
     dim:
       +materialized: table
     src:
